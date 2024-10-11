@@ -1,27 +1,32 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+// Função para rolar até a seção correspondente
+function scrollToSection(sectionId) {
+    // Rola suavemente até a seção especificada
+    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+}
 
-    menuToggle.addEventListener('click', function() {
-        navLinks.classList.toggle('showing');
-    });
+// Função para alternar a exibição do submenu
+function toggleSubmenu(submenuId) {
+    const submenu = document.getElementById(submenuId);
+    // Alterna a visibilidade do submenu
+    submenu.style.display = submenu.style.display === 'none' ? 'block' : 'none';
+}
 
-    // Modal Image Gallery
-    const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("modal-img");
-    const captionText = document.getElementById("caption");
-    const fotos = document.querySelectorAll(".foto");
+// Menu responsivo
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+    // Alterna a classe 'active' no menu para exibir ou esconder
+    document.querySelector('#menu').classList.toggle('active');
+});
 
-    fotos.forEach(foto => {
-        foto.addEventListener('click', function() {
-            modal.style.display = "block";
-            modalImg.src = this.src;
-            captionText.innerHTML = this.alt;
-        });
-    });
+// Desabilita o botão direito do mouse para copiar ou colar
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault(); // Impede o menu de contexto (botão direito do mouse)
+    alert("Ei, o botão direito está de férias! Tente o esquerdo, ele adora trabalhar.");
+});
 
-    const span = document.getElementsByClassName("close")[0];
-    span.addEventListener('click', function() {
-        modal.style.display = "none";
-    });
+// Opcional: Desabilitar também os atalhos de teclado para copiar (Ctrl+C), colar (Ctrl+V) e cortar (Ctrl+X)
+document.addEventListener('keydown', function(event) {
+    if ((event.ctrlKey && (event.key === 'c' || event.key === 'x' || event.key === 'v'))) {
+        event.preventDefault(); // Impede as ações de copiar, cortar e colar
+        alert("Ops! Esses atalhos estão de folga hoje. Que tal usar o bom e velho método manual?");
+    }
 });

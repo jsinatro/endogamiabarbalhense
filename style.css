@@ -1,0 +1,182 @@
+/* Estilos gerais do corpo da página */
+body {
+    font-family: 'Courier New', Courier, monospace; /* Fonte utilizada para todo o texto */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove preenchimento padrão */
+    background-color: #f0f0f0; /* Cor de fundo da página */
+}
+
+/* Estilos do cabeçalho */
+header {
+    background-color: #333; /* Cor de fundo do cabeçalho */
+    color: white; /* Cor do texto do cabeçalho */
+    display: flex; /* Flexbox para alinhar itens no cabeçalho */
+    justify-content: space-between; /* Distribui espaço entre logo e menu */
+    align-items: center; /* Alinha itens verticalmente ao centro */
+    padding: 10px; /* Espaçamento interno do cabeçalho */
+}
+
+/* Estilo do logo */
+header img {
+    height: 50px; /* Altura do logo */
+}
+
+/* Estilos de navegação */
+nav {
+    display: flex; /* Flexbox para exibir o menu de navegação */
+}
+
+/* Estilos da lista do menu */
+nav ul {
+    list-style: none; /* Remove marcadores de lista */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove preenchimento padrão */
+    display: flex; /* Alinha os itens do menu horizontalmente */
+}
+
+/* Estilos dos itens do menu */
+nav ul li {
+    margin: 0 15px; /* Margem entre itens do menu */
+}
+
+/* Estilos dos links do menu */
+nav ul li a {
+    color: white; /* Cor dos links do menu */
+    text-decoration: none; /* Remove sublinhado dos links */
+}
+
+/* Estilo do botão do menu no mobile */
+.menu-toggle {
+    display: none; /* Inicialmente escondido em telas grandes */
+    cursor: pointer; /* Indica que é clicável */
+    font-size: 24px; /* Tamanho do ícone do menu */
+}
+
+/* Estilos do conteúdo principal */
+.content {
+    display: flex; /* Flexbox para exibir o conteúdo em linhas */
+    flex-direction: row; /* Direção da flexbox */
+    padding: 20px; /* Espaçamento interno do conteúdo */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve atrás do texto */
+
+}
+.intro {
+    display: flex; /* Flexbox para exibir o conteúdo em linhas */
+    flex-direction: row; /* Direção da flexbox */
+    padding:30px; /* Espaçamento interno do conteúdo */
+    justify-content: center;
+    align-items: center;
+    line-height: 1.5;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve atrás do texto */
+}
+
+/* Estilos da barra lateral */
+.sidebar {
+    width: 25%; /* Largura da barra lateral */
+    background-color: #fff; /* Cor de fundo da barra lateral */
+    padding: 20px; /* Espaçamento interno da barra lateral */
+    border-right: 1px solid #ddd; /* Borda à direita da barra lateral */
+}
+
+/* Estilos da seção principal */
+.main {
+    width: 75%; /* Largura da seção principal */
+    padding: 20px; /* Espaçamento interno da seção principal */
+    background-color: #fff; /* Cor de fundo da seção principal */
+    border-left: 1px solid #ddd; /* Borda à esquerda da seção principal */
+    text-align: justify;
+    line-height: 1.5;
+
+}
+
+/* Títulos de ancestrais diretos - destacados */
+.direto {
+    font-size: 24px; /* Tamanho maior para títulos diretos */
+    font-weight: bold; /* Negrito para títulos diretos */
+}
+
+/* Títulos de ancestrais indiretos - em negrito, mas não maiores */
+.indireto {
+    font-weight: bold; /* Negrito para títulos indiretos */
+    font-size: 14px; /* Tamanho igual ao padrão */
+}
+
+/* Estilos dos títulos da seção principal */
+.main h2 {
+    font-size: 24px; /* Tamanho padrão para os títulos */
+    font-weight: bold; /* Negrito para títulos principais */
+}
+
+/* Estilos dos subtítulos */
+.main h3 {
+    font-size: 20px; /* Tamanho padrão para subtítulos */
+    color: #333; /* Cor dos subtítulos */
+    margin-top: 20px; /* Margem superior para separar do conteúdo acima */
+}
+
+/* Estilos dos subtítulos menores */
+.main h4 {
+    font-size: 18px; /* Tamanho padrão para subtítulos menores */
+    color: #555; /* Cor dos subtítulos menores */
+    margin-top: 10px; /* Margem superior para separar do conteúdo acima */
+}
+
+/* Estilos do índice na barra lateral */
+.index {
+    margin-bottom: 20px; /* Margem inferior da lista de índices */
+}
+
+/* Estilos dos títulos do índice */
+.index h3 {
+    cursor: pointer; /* Indica que pode ser clicável */
+    margin-bottom: 10px; /* Margem inferior */
+}
+
+/* Estilos da lista do índice */
+.index ul {
+    list-style: none; /* Remove marcadores da lista */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+/* Estilos dos itens do índice */
+.index ul li {
+    margin-left: 20px; /* Margem à esquerda */
+    cursor: pointer; /* Indica que pode ser clicável */
+    color: #0857b1; /* Cor dos itens da lista */
+}
+
+/* Estilos dos submenus */
+.submenu {
+    display: none; /* Esconde os submenus por padrão */
+}
+
+/* Estilo do menu quando ativo no mobile */
+nav ul.active {
+    display: block; /* Mostra o menu em modo mobile */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Mostra o botão do menu no mobile */
+    }
+
+    nav ul {
+        display: none; /* Esconde o menu em dispositivos pequenos */
+        flex-direction: column; /* Alinha itens verticalmente */
+        background-color: #333; /* Cor de fundo do menu no mobile */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Margem vertical entre os itens do menu */
+    }
+
+    .sidebar {
+        display: none; /* Esconde a barra lateral em dispositivos pequenos */
+    }
+
+    .main {
+        width: 100%; /* A seção principal ocupa toda a largura */
+    }
+}
