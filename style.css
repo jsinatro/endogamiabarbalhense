@@ -14,6 +14,7 @@ header {
     justify-content: space-between; /* Distribui espaço entre logo e menu */
     align-items: center; /* Alinha itens verticalmente ao centro */
     padding: 10px; /* Espaçamento interno do cabeçalho */
+    font-weight: bold;
 }
 
 /* Estilo do logo */
