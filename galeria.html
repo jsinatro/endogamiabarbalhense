@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Fotos</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo de estilos CSS -->
+    <style>
+        /* Estilos da galeria */
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            flex: 1 1 calc(33.333% - 40px);
+            max-width: calc(33.333% - 40px);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item .desc {
+            padding: 15px;
+            text-align: center;
+            background-color: #f8f8f8;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+       <img src="images/logo.png" alt="Logo">
+        <nav>
+            <span class="menu-toggle">&#9776;</span>
+            <ul id="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="livro.html">Livro</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="diversos.html">Diversos</a></li>
+                <li><a href="arvore.html">Árvore Genealógica</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <img src="images/avelina1.jpg" alt="Avelina">
+            <div class="desc">Maria Avelina de Sousa, minha avó, aos 87 anos.</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images/avelina2.jpg" alt="Avelina">
+            <div class="desc">Maria Avelina de Sousa e seu esposo Raimundo Severino de Sousa (Abel) e seus netos Cícero Tiago de Sousa e Sabrina Maria de Sousa por volta do ano de 1994, nas comemorações da festa de Santa Ana, no Sótio Rua Nova em Barbalha - CE.</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images/carmo.jpg" alt="Maria do Carmo">
+            <div class="desc">Maria do Carmo de Sousa e seus bisnetos  Tiago e Sabrina, por volta do ano de 1994 no sítio Rua Nova em Barbalha.</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
