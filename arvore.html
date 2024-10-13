@@ -2,21 +2,18 @@
 <html lang="pt-BR">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-69GFX8NDB9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-69GFX8NDB9');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-69GFX8NDB9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-69GFX8NDB9');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Endogamia Barbalhense: A Conexão Familiar de Alves de Sousa, Viardo, Saraiva, Vidal de Lima, Silva Caldas e Outros</title>
     <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo de estilos CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/themes/default/style.min.css"> <!-- CSS do jsTree -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js"></script> <!-- jsTree -->
     <style>
         /* Estilo para o contêiner da árvore genealógica */
         #tree {
@@ -24,11 +21,50 @@
             padding: 20px; /* Preenchimento interno */
             border: 1px solid #ddd; /* Borda ao redor da árvore */
             height: 600px; /* Altura do contêiner */
-            overflow: auto; /* Permite rolagem se necessário */
+            overflow: hidden; /* Sem rolagem */
+        }
+
+        /* Estilos básicos de página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        h2 {
+            font-family: 'EB Garamond', serif;
         }
     </style>
 </head>
-
 
 <body>
     <header>
@@ -47,49 +83,19 @@
     </header>
 
     <div class="content">
-        <aside class="sidebar">
-            <h3>Índice</h3>
-            <ul>
-                <li><a href="#tree">Ver Árvore</a></li> <!-- Link para visualizar a árvore -->
-            </ul>
-        </aside>
-
         <section class="main">
             <h2>Árvore Genealógica</h2>
-            <div id="tree"></div> <!-- Div onde a árvore genealógica será exibida -->
+            <div id="tree">
+                <!-- Iframe do Topola Viewer substituindo o jsTree -->
+                <iframe 
+                    src="https://pewu.github.io/topola-viewer/#/view?utm_source=gramps&handleCors=false&standalone=false&url=http://127.0.0.1:8156/"
+                    width="100%" 
+                    height="100%" 
+                    style="border:none;">
+                </iframe>
+            </div>
         </section>
     </div>
 
-    <script>
-        // Dados da árvore genealógica em formato JSON
-        var treeData = [
-            { "id": "1", "parent": "#", "text": "João Sinatro de Sousa | 1985" }, // Você
-            { "id": "2", "parent": "1", "text": "João Alves de Sousa | 1960" }, // Pai
-            { "id": "3", "parent": "1", "text": "Maria do Rosário de Sousa | 1960" }, // Mãe
-            { "id": "4", "parent": "2", "text": "Sabino Firmino de Sousa | 1911-1988" }, // Avô Paterno
-            { "id": "5", "parent": "2", "text": "Maria Ana de Jesus | 1921-2011" }, // Avó Paterna
-            { "id": "6", "parent": "3", "text": "Raimundo Severino de Sousa | 1935-2016" }, // Avô Materno
-            { "id": "7", "parent": "3", "text": "Maria Avelina de Sousa | 1935" }, // Avó Materna
-            // Bisavós Paternos
-            { "id": "8", "parent": "4", "text": "Firmino Joaquim de Sousa | 1882 - ????" },
-            { "id": "9", "parent": "4", "text": "Maria Glória do Espírito Santo | 1882-????" },
-            { "id": "10", "parent": "5", "text": "João Manoel Alves | 1855-????" },
-            { "id": "11", "parent": "5", "text": "Ana Maria da Conceição | 1897-????" },
-            // Bisavós Maternos
-            { "id": "12", "parent": "6", "text": "Severino Saraiva de Sousa | 1911-1988" },
-            { "id": "13", "parent": "6", "text": "Maria de Sousa Lima | 1914-1994" },
-            { "id": "14", "parent": "7", "text": "João de Sousa Lima | 1907-1984" },
-            { "id": "15", "parent": "7", "text": "Maria do Carmo de Sousa | 1911-1996" }
-        ];
-
-        // Inicializa o jsTree com os dados fornecidos
-        $(function() {
-            $('#tree').jstree({
-                'core': {
-                    'data': treeData // Dados da árvore
-                }
-            });
-        });
-    </script>
 </body>
 </html>
