@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-69GFX8NDB9"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-69GFX8NDB9');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Endogamia Barbalhense: A Conexão Familiar</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Árvore Genealógica</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo de estilos CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/themes/default/style.min.css" />
     <style>
         /* Estilo para o contêiner da árvore genealógica */
         #tree {
-            margin: 20px; 
-            padding: 20px; 
-            border: 1px solid #ddd; 
-            height: 600px; 
-            overflow: hidden; 
+            margin: 20px; /* Margem ao redor da árvore */
+            padding: 20px; /* Preenchimento interno */
+            border: 1px solid #ddd; /* Borda ao redor da árvore */
+            height: 600px; /* Altura do contêiner */
+            overflow: auto; /* Com rolagem */
         }
 
         /* Estilos básicos de página */
@@ -67,10 +60,10 @@
 
 <body>
     <header>
-        <img src="images/logo.png" alt="Logo"> 
+        <img src="images/logo.png" alt="Logo"> <!-- Logo da página -->
         <nav>
-            <span class="menu-toggle">&#9776;</span>
-            <ul id="menu">
+            <span class="menu-toggle">&#9776;</span> <!-- Ícone do menu sanduíche -->
+            <ul id="menu"> <!-- Menu de navegação -->
                 <li><a href="index.html">Home</a></li>
                 <li><a href="livro.html">Livro</a></li>
                 <li><a href="galeria.html">Galeria</a></li>
@@ -85,16 +78,26 @@
         <section class="main">
             <h2>Árvore Genealógica</h2>
             <div id="tree">
-                <!-- Iframe do Topola Viewer -->
-                <iframe 
-                src="https://pewu.github.io/topola-viewer/#/view?url=arvore.ged"                    
-                    width="100%" 
-                    height="100%" 
-                    style="border:none;">
-                </iframe>
+                <!-- O conteúdo da árvore será carregado aqui -->
             </div>
         </section>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Carregar o JSON da árvore genealógica
+            $.getJSON("arvore.json", function(data) {
+                $('#tree').jstree({
+                    'core': {
+                        'data': data
+                    }
+                });
+            }).fail(function() {
+                alert("Falha ao carregar o arquivo JSON.");
+            });
+        });
+    </script>
 </body>
 </html>
