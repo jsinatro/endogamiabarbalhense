@@ -30,3 +30,40 @@ document.addEventListener('keydown', function(event) {
         alert("Ops! Esses atalhos estão de folga hoje. Que tal usar o bom e velho método manual?");
     }
 });
+
+// Scritp galeria
+
+let currentPhotoIndex = 0;
+let photos = document.querySelectorAll('.gallery img');
+let modal = document.getElementById('myModal');
+let modalImg = document.getElementById('modalImg');
+let captionText = document.getElementById('caption');
+
+function openModal(index) {
+    modal.style.display = "block";
+    currentPhotoIndex = index;
+    updateModal();
+}
+
+function closeModal() {
+    modal.style.display = "none";
+}
+
+function changePhoto(direction) {
+    currentPhotoIndex += direction;
+
+    // Se a imagem atual é a primeira ou última, volta ao início ou ao fim
+    if (currentPhotoIndex < 0) {
+        currentPhotoIndex = photos.length - 1;
+    } else if (currentPhotoIndex >= photos.length) {
+        currentPhotoIndex = 0;
+    }
+    
+    updateModal();
+}
+
+function updateModal() {
+    let currentPhoto = photos[currentPhotoIndex];
+    modalImg.src = currentPhoto.src;
+    captionText.innerHTML = currentPhoto.getAttribute('data-caption');
+}
