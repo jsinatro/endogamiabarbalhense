@@ -1,61 +1,159 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-69GFX8NDB9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-69GFX8NDB9');
+</script>
+<style>
+    body {
+        background-color: #2b2b2b;
+        color: #dcdcdc;
+        font-family: 'Courier New', Courier, monospace;
+        padding: 20px;
+    }
+
+    .terminal {
+        background-color: #1e1e1e;
+        border-radius: 5px;
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        font-size: 1rem;
+    }
+
+    .terminal-header {
+        background-color: #333;
+        padding: 10px;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 5px 5px 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .terminal-header .buttons {
+        display: flex;
+    }
+
+    .terminal-header .buttons span {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    .terminal-header .buttons .close {
+        background-color: #ff5f56;
+    }
+
+    .terminal-header .buttons .minimize {
+        background-color: #ffbd2e;
+    }
+
+    .terminal-header .buttons .maximize {
+        background-color: #27c93f;
+    }
+
+    .terminal-body {
+        background-color: #1e1e1e;
+        padding: 15px;
+        height: 400px;
+        overflow-y: auto;
+    }
+
+    .terminal-body p {
+        margin: 0;
+    }
+
+    .prompt {
+        color: #00ff00;
+    }
+
+    .output {
+        color: #ffffff;
+    }
+
+    .cursor {
+        display: inline-block;
+        width: 8px;
+        height: 16px;
+        background-color: #00ff00;
+        animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+        0% { opacity: 1; }
+        50% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    .joke {
+        color: #ffbd2e;
+    }
+
+    a {
+        color: #00ff00;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parente não encontrado - Endogamia Barbalhense: A Conexão Familiar de Alves de Sousa, Viardo, Saraiva, Vidal de Lima, Silva Caldas e Outros</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            text-align: center;
-        }
-        h1 {
-            font-size: 4em;
-            color: #333;
-        }
-        p {
-            font-size: 1.5em;
-            color: #555;
-        }
-        .error-message {
-            margin-top: 20px;
-        }
-        .btn-home {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .btn-home:hover {
-            background-color: #0056b3;
-        }
-        .family-tree-icon {
-            font-size: 100px;
-            color: #777;
-        }
-    </style>
+    <title>Endogamia Barbalhense: Parente não encontrado</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo de estilos CSS -->
 </head>
+
+
+
 <body>
-
-    <div class="container">
-        <div class="family-tree-icon">🌳</div>
-        <h1>oops..</h1>
-        <p>Hmm... parece que essa parte da árvore genealógica está vazia.</p>
-        <p class="error-message">Nenhum parente encontrado por aqui... Talvez você tenha digitado algo errado.</p>
-        <a href="index.html" class="btn-home">Voltar para a página inicial</a>
+    <header>
+       <img src="images/logo.png" alt="Logo"> <!-- Logo da página -->
+        <nav>
+            <span class="menu-toggle">&#9776;</span> <!-- Ícone do menu sanduíche -->
+            <ul id="menu"> <!-- Menu de navegação -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="livro.html">Livro</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="diversos.html">Diversos</a></li>
+                <li><a href="arvore.html">Árvore Genealógica</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div><br></div>
+    <div><br></div>
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="buttons">
+                <span class="close"></span>
+                <span class="minimize"></span>
+                <span class="maximize"></span>
+            </div>
+            <div class="title">Endogamia Barbalhense</div>
+        </div>
+        <div class="terminal-body">
+            <p class="prompt">endogamia@barbalhense:~$ <span class="output">cd /familia</span></p>
+            <p class="output">Erro 404: O membro da família que você procura não foi encontrado.</p>
+            <p class="prompt">endogamia@barbalhense:~$ <span class="output">ls</span></p>
+            <p class="output">ancestrais  descendentes  ramos-perdidos</p>
+            <p class="prompt">endogamia@barbalhense:~$ <span class="output">cat "ÁrvoreGenealógica.txt"</span></p>
+            <p class="output joke">Oops! Parece que este ramo da árvore foi cortado... ou talvez nunca tenha existido.</p>
+            <p class="prompt">endogamia@barbalhense:~$ <span class="output">echo "Clique <a href="https://jsinatro.github.io/endogamiabarbalhense">aqui</a> para voltar à página inicial."</span></p>
+            <p class="prompt">endogamia@barbalhense:~$ <span class="cursor"></span></p>
+        </div>
     </div>
-
+    <script src="script.js"></script> <!-- Link para o arquivo JavaScript -->
 </body>
 </html>
