@@ -1,0 +1,7 @@
+{
+    "CodeGPT.apiKey": "CodeGPT Plus Beta",
+    "notebook.defaultFormatter": "DanielSanMedium.dscodegpt",
+    "editor.defaultFoldingRangeProvider": "DanielSanMedium.dscodegpt",
+    "editor.defaultFormatter": "DanielSanMedium.dscodegpt",
+    "CodeGPT.query.language": "Portuguese"
+}
