@@ -59,16 +59,27 @@ nav ul li a {
     flex-direction: row; /* Direção da flexbox */
     padding: 20px; /* Espaçamento interno do conteúdo */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve atrás do texto */
-
 }
+
+/* Estilo da introdução */
 .intro {
     display: flex; /* Flexbox para exibir o conteúdo em linhas */
     flex-direction: row; /* Direção da flexbox */
-    padding:30px; /* Espaçamento interno do conteúdo */
-    justify-content: center;
+    padding: 30px; /* Espaçamento interno do conteúdo */
+    justify-content: center; /* Centraliza os itens */
     align-items: center;
     line-height: 1.5;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve atrás do texto */
+}
+
+.intro img {
+    margin-right: 20px; /* Espaçamento entre a imagem e o texto */
+    max-width: 150px; /* Tamanho da imagem */
+    height: auto; /* Ajusta altura proporcionalmente */
+}
+
+.intro p {
+    max-width: 70%; /* Texto ao lado da imagem */
 }
 
 /* Estilos da barra lateral */
@@ -87,7 +98,6 @@ nav ul li a {
     border-left: 1px solid #ddd; /* Borda à esquerda da seção principal */
     text-align: justify;
     line-height: 1.5;
-
 }
 
 /* Títulos de ancestrais diretos - destacados */
@@ -157,6 +167,15 @@ nav ul.active {
     display: block; /* Mostra o menu em modo mobile */
 }
 
+.separator {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.5em; /* Ajuste o tamanho da fonte conforme necessário */
+    color: #000000; /* Ajuste a cor conforme necessário */
+    font-weight: bold; /* Negrito */
+    text-shadow: 2px 2px 5px rgba(82, 82, 82, 0.3); /* Sombra para os asteriscos */
+}
+
 /* Estilos responsivos */
 @media (max-width: 768px) {
     .menu-toggle {
@@ -181,4 +200,3 @@ nav ul.active {
         width: 100%; /* A seção principal ocupa toda a largura */
     }
 }
-
