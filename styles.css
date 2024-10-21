@@ -65,7 +65,7 @@ nav ul li a {
 .intro {
     display: flex; /* Flexbox para exibir o conteúdo em linhas */
     flex-direction: row; /* Direção da flexbox */
-    padding: 30px; /* Espaçamento interno do conteúdo */
+    padding: 20px; /* Espaçamento interno do conteúdo */
     justify-content: center; /* Centraliza os itens */
     align-items: center;
     line-height: 1.5;
@@ -92,7 +92,7 @@ nav ul li a {
 
 /* Estilos da seção principal */
 .main {
-    width: 75%; /* Largura da seção principal */
+    width: 80%; /* Largura da seção principal */
     padding: 20px; /* Espaçamento interno da seção principal */
     background-color: #fff; /* Cor de fundo da seção principal */
     border-left: 1px solid #ddd; /* Borda à esquerda da seção principal */

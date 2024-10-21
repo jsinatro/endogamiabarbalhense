@@ -67,3 +67,4 @@ function updateModal() {
     modalImg.src = currentPhoto.src;
     captionText.innerHTML = currentPhoto.getAttribute('data-caption');
 }
+
