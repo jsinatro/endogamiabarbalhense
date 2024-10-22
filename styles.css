@@ -92,7 +92,7 @@ nav ul li a {
 
 /* Estilos da seção principal */
 .main {
-    width: 80%; /* Largura da seção principal */
+    width: 100%; /* Largura da seção principal */
     padding: 20px; /* Espaçamento interno da seção principal */
     background-color: #fff; /* Cor de fundo da seção principal */
     border-left: 1px solid #ddd; /* Borda à esquerda da seção principal */
@@ -198,5 +198,10 @@ nav ul.active {
 
     .main {
         width: 100%; /* A seção principal ocupa toda a largura */
+        padding: 20px; /* Espaçamento interno da seção principal */
+        background-color: #fff; /* Cor de fundo da seção principal */
+        border-left: 1px solid #ddd; /* Borda à esquerda da seção principal */
+        text-align: center;
+        line-height: 1.5;
     }
 }
