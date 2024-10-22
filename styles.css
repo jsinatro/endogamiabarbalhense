@@ -201,7 +201,7 @@ nav ul.active {
         padding: 20px; /* Espaçamento interno da seção principal */
         background-color: #fff; /* Cor de fundo da seção principal */
         border-left: 1px solid #ddd; /* Borda à esquerda da seção principal */
-        text-align: center;
+        text-align: justify;
         line-height: 1.5;
     }
 }
