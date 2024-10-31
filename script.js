@@ -68,3 +68,11 @@ function updateModal() {
     captionText.innerHTML = currentPhoto.getAttribute('data-caption');
 }
 
+// Aguarda o carregamento completo da página para o wait a moment please
+window.addEventListener("load", function() {
+    // Esconde a tela de carregamento
+    document.getElementById("loading-screen").style.display = "none";
+    // Mostra o conteúdo principal
+    document.getElementById("main-content").style.display = "block";
+});
+

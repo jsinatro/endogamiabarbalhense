@@ -131,6 +131,15 @@ nav ul li a {
     color: #555; /* Cor dos subtítulos menores */
     margin-top: 10px; /* Margem superior para separar do conteúdo acima */
 }
+/* Paie e irmãos etc */
+.main h5 {
+    font-size: 22px; /* Tamanho padrão para subtítulos menores */
+    color: #555; /* Cor dos subtítulos menores */
+    margin-top: 10px; /* Margem superior para separar do conteúdo acima */
+    font-style: italic;
+    text-align: center;
+    text-decoration: underline;
+}
 
 /* Estilos do índice na barra lateral */
 .index {
@@ -204,4 +213,21 @@ nav ul.active {
         text-align: justify;
         line-height: 1.5;
     }
+
+    /*wait a moment please*/
+    .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #f3f3f3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 50px;
+        color: #333;
+        z-index: 9999; /* Certifica-se que fica por cima do resto */
+    }
+
 }
