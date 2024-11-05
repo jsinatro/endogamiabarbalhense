@@ -230,16 +230,5 @@ nav ul.active {
         z-index: 9999; /* Certifica-se que fica por cima do resto */
     }
 
-    blog-post {
-        display: flex; /* Flexbox para exibir o conteúdo em linhas */
-        flex-direction: row; /* Direção da flexbox */
-        padding: 20px; /* Espaçamento interno do conteúdo */
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve atrás do texto */
-        width: 90%; /* A seção principal ocupa toda a largura */
-        padding: 20px; /* Espaçamento interno da seção principal */
-        background-color: #fff; /* Cor de fundo da seção principal */
-        border-left: 1px solid #ddd; /* Borda à esquerda da seção principal */
-        text-align: justify;
-        line-height: 1.5;
-    }
+    
 }
