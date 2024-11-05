@@ -47,6 +47,38 @@
                 <p>Espero que este espaço se torne um farol, guiando aqueles que buscam se reconectar com suas raízes e reafirmando que as pessoas não são apenas sombras do passado, mas seres vivos que continuam a moldar nosso presente. Sejam bem-vindos à nossa comunidade de descoberta genealógica!</p>
                 <p>Clique <a href="livro.html">aqui</a> para começar a descobrir a história.</p>
         </section>
+        <div>
+            <style>
+                #imagem_whats {
+                    position: fixed;
+                    right: 0;
+                    bottom: 0;
+                    display: block;
+                    cursor: pointer;
+                    z-index: 9999999;
+                    float: right;
+                }
+                #imagem_whats2 {
+                    position: fixed;
+                    right: 0;
+                    bottom: 0;
+                    display: block;
+                    cursor: pointer;
+                    z-index: 9999999;
+                    float: right;
+                    display: none;
+                }
+                @media only screen and (max-width: 999px) and (min-width: 100px) {
+                    #imagem_whats {
+                        display: none;
+                    }
+                    #imagem_whats2 {
+                        display: block;
+                    }
+                }
+            </style>
+            <img id="imagem_whats" src="https://www.ellodigital.com.br/images/whatsapp.png" onClick="window.open('https://web.whatsapp.com/send?phone=5511996495465&text=Endogamia%20Barbalhense', '_blank');">
+            <img id="imagem_whats2" src="https://www.ellodigital.com.br/images/whatsapp.png" onClick="window.open('https://api.whatsapp.com/send?phone=5511996495465&text=Endogamia%20Barbalhense', '_blank');">
         </div>
 
     <script src="script.js"></script> <!-- Link para o arquivo JavaScript -->
