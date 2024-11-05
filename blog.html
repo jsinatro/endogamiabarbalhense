@@ -5,35 +5,32 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-69GFX8NDB9"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-69GFX8NDB9');
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-69GFX8NDB9');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Endogamia Barbalhense: Livro</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Link para o arquivo de estilos CSS -->
 </head>
 <body>
     <header>
         <img src="images/logo.png" alt="Logo">
-        <!-- Logo da página -->
         <nav>
             <span class="menu-toggle">&#9776;</span>
-            <!-- Ícone do menu sanduíche -->
             <ul id="menu">
-                <!-- Menu de navegação -->
                 <li><a href="index.html">Home</a></li>
                 <li><a href="livro.html">Livro</a></li>
                 <li><a href="galeria.html">Galeria</a></li>
                 <li><a href="diversos.html">Diversos</a></li>
                 <li><a href="arvore.html">Árvore Genealógica</a></li>
+                <li><a href="blog.html">Blog</a></li>
                 <li><a href="contato.html">Contato</a></li>
             </ul>
         </nav>
     </header>
+
     <div>
         <style>
             #imagem_whats {
@@ -67,10 +64,30 @@
         <img id="imagem_whats" src="https://www.ellodigital.com.br/images/whatsapp.png" onClick="window.open('https://web.whatsapp.com/send?phone=5511996495465&text=Endogamia%20Barbalhense', '_blank');">
         <img id="imagem_whats2" src="https://www.ellodigital.com.br/images/whatsapp.png" onClick="window.open('https://api.whatsapp.com/send?phone=5511996495465&text=Endogamia%20Barbalhense', '_blank');">
     </div>
-        </section>
-    </div>
-    <script src="script.js"></script>
-    <!-- Link para o arquivo JavaScript -->
-</body>
 
+    <!-- Seção do Blog -->
+    <main>
+        <section id="main">
+            <h2>Blog</h2>
+            <p>
+                <!-- Digite o texto do seu blog aqui. Basta substituir este conteúdo sempre que tiver uma nova postagem -->
+                Bem-vindo ao blog da Endogamia Barbalhense! Aqui você encontrará histórias, curiosidades e informações sobre nossas raízes.
+            </p>
+        </section>
+
+        <!-- Seção de Comentários com Utterances -->
+        <section id="comments">
+            <h3>Comentários</h3>
+            <script src="https://utteranc.es/client.js"
+                    repo="jsinatro/endogamiabarbalhense"
+                    issue-term="pathname"
+                    theme="github-light"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
 </html>
