@@ -20,7 +20,7 @@
         }
 
         img {
-            width: 80%; /* Largura da imagem ajusta-se ao container */
+            width: 100%; /* Largura da imagem ajusta-se ao container */
             max-width: 500px; /* Largura máxima da imagem */
             height: auto; /* Mantém a proporção da imagem */
             display: block; /* Garante que a imagem seja um bloco */
@@ -28,13 +28,13 @@
         }
 
         h1 {
-            font-size: 2em; /* Tamanho do título relativo ao elemento raiz */
+            font-size: 2em; /* Tamanho do título padrão */
             color: black; /* Cor do título */
             margin-top: 20px; /* Margem acima do título */
         }
 
         .sub-header {
-            font-size: 1.5em; /* Tamanho do texto relativo ao elemento raiz */
+            font-size: 1.5em; /* Tamanho do texto padrão */
             color: black; /* Cor do texto */
             margin-top: 10px; /* Margem acima do texto */
         }
@@ -44,11 +44,25 @@
             text-decoration: none; /* Remove o sublinhado do link */
             display: inline-block; /* Para que a margem funcione corretamente */
             margin-top: 20px; /* Margem acima do link */
-            font-size: 1.2em; /* Tamanho do link relativo ao elemento raiz */
+            font-size: 1.2em; /* Tamanho do link padrão */
         }
 
         a:hover {
             text-decoration: underline; /* Sublinha o link ao passar o mouse */
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 1.5em; /* Ajusta o tamanho do título para telas maiores */
+            }
+
+            .sub-header {
+                font-size: 1.2em; /* Ajusta o tamanho do texto para telas maiores */
+            }
+
+            a {
+                font-size: 1em; /* Ajusta o tamanho do link para telas maiores */
+            }
         }
     </style>
 </head>
@@ -57,7 +71,7 @@
         <img src="images/404.png" alt="Árvore Genealógica">
         <h1>Ops, parente não encontrado! 🌱</h1>
         <p class="sub-header">
-            Talvez ele tenha se perdido no caminho... ou quem sabe foi para um galho mais divertido!
+            Talvez ele tenha se perdido no caminho... ou quem sabe esse ramo ainda não foi encontrado!
         </p>
         <p>
             <a href="https://jsinatro.github.io/endogamiabarbalhense">Clique aqui</a> para voltar para a página inicial.
