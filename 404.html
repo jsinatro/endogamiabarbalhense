@@ -1,154 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-69GFX8NDB9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-69GFX8NDB9');
-</script>
-<style>
-    body {
-        background-color: #2b2b2b;
-        color: #dcdcdc;
-        font-family: 'Courier New', Courier, monospace;
-        padding: 20px;
-    }
-
-    .terminal {
-        background-color: #1e1e1e;
-        border-radius: 5px;
-        padding: 20px;
-        max-width: 800px;
-        margin: 0 auto;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-        font-size: 1rem;
-    }
-
-    .terminal-header {
-        background-color: #333;
-        padding: 10px;
-        color: #fff;
-        font-weight: bold;
-        border-radius: 5px 5px 0 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .terminal-header .buttons {
-        display: flex;
-    }
-
-    .terminal-header .buttons span {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        display: inline-block;
-        margin-right: 5px;
-    }
-
-    .terminal-header .buttons .close {
-        background-color: #ff5f56;
-    }
-
-    .terminal-header .buttons .minimize {
-        background-color: #ffbd2e;
-    }
-
-    .terminal-header .buttons .maximize {
-        background-color: #27c93f;
-    }
-
-    .terminal-body {
-        background-color: #1e1e1e;
-        padding: 15px;
-        height: 400px;
-        overflow-y: auto;
-    }
-
-    .terminal-body p {
-        margin: 0;
-    }
-
-    .prompt {
-        color: #00ff00;
-    }
-
-    .output {
-        color: #ffffff;
-    }
-
-    .cursor {
-        display: inline-block;
-        width: 8px;
-        height: 16px;
-        background-color: #00ff00;
-        animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-        0% { opacity: 1; }
-        50% { opacity: 0; }
-        100% { opacity: 1; }
-    }
-
-    .joke {
-        color: #ffbd2e;
-    }
-
-    a {
-        color: #00ff00;
-        text-decoration: none;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Endogamia Barbalhense: Parente não encontrado</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link para o arquivo de estilos CSS -->
+    <title>Parente não encontrado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Fonte padrão */
+            background-color: #f9f9f9; /* Cor de fundo */
+            margin: 0; /* Remove margens padrão */
+            padding: 0; /* Remove preenchimento padrão */
+            display: flex;
+            justify-content: center; /* Centraliza na horizontal */
+            align-items: center; /* Centraliza na vertical */
+            height: 100vh; /* Altura total da tela */
+            text-align: center; /* Centraliza o texto */
+        }
+
+        img {
+            width: 500px; /* Largura da imagem */
+            height: auto; /* Mantém a proporção da imagem */
+            display: block; /* Garante que a imagem seja um bloco */
+            margin: 0 auto; /* Centraliza a imagem */
+        }
+
+        h1 {
+            font-size: 28px; /* Tamanho do título */
+            color: black; /* Cor do título */
+            margin-top: 20px; /* Margem acima do título */
+        }
+
+        .sub-header {
+            font-size: 22px; /* Tamanho do texto */
+            color: black; /* Cor do texto */
+            margin-top: 10px; /* Margem acima do texto */
+        }
+
+        a {
+            color: #007BFF; /* Cor do link */
+            text-decoration: none; /* Remove o sublinhado do link */
+            display: inline-block; /* Para que a margem funcione corretamente */
+            margin-top: 20px; /* Margem acima do link */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Sublinha o link ao passar o mouse */
+        }
+    </style>
 </head>
-
-
-
 <body>
-    <header>
-       <img src="images/logo.png" alt="Logo"> <!-- Logo da página -->
-        <nav>
-            <span class="menu-toggle">&#9776;</span> <!-- Ícone do menu sanduíche -->
-            <ul id="menu"> <!-- Menu de navegação -->
-                <li><a href="index.html">Home</a></li>
-                <li><a href="livro.html">Livro</a></li>
-                <li><a href="galeria.html">Galeria</a></li>
-                <li><a href="arvore.html">Árvore Genealógica</a></li>
-                <li><a href="blog.html">Blog</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div><br></div>
-    <div><br></div>
-    <div class="terminal">
-        <div class="terminal-header">
-            <div class="buttons">
-                <span class="close"></span>
-                <span class="minimize"></span>
-                <span class="maximize"></span>
-            </div>
-            <div class="title">Endogamia Barbalhense</div>
-        </div>
-        <div class="terminal-body">
-            <p class="prompt">endogamia@barbalhense:~$ <span class="output">cd /familia</span></p>
-            <p class="output joke">Oops! Parece que este ramo da árvore foi cortado... ou talvez nunca tenha existido.</p>
-            <p class="prompt">endogamia@barbalhense:~$ <span class="output">echo "Clique <a href="https://jsinatro.github.io/endogamiabarbalhense">aqui</a> para voltar à página inicial."</span></p>
-            <p class="prompt">endogamia@barbalhense:~$ <span class="cursor"></span></p>
-        </div>
+    <div>
+        <img src="images/404.png" alt="Árvore Genealógica">
+        <h1>Ops, parente não encontrado! 🌱</h1>
+        <p class="sub-header">
+            Talvez ele tenha se perdido no caminho... ou quem sabe Esse ramo ainda não foi encontrado!
+        </p>
+        <p>
+            <a href="https://jsinatro.github.io/endogamiabarbalhense">Clique aqui</a> para voltar para a página inicial.
+        </p>
     </div>
-    <script src="script.js"></script> <!-- Link para o arquivo JavaScript -->
 </body>
 </html>
