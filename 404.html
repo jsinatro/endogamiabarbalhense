@@ -15,23 +15,26 @@
             align-items: center; /* Centraliza na vertical */
             height: 100vh; /* Altura total da tela */
             text-align: center; /* Centraliza o texto */
+            padding: 20px; /* Espaçamento interno para pequenas telas */
+            box-sizing: border-box; /* Inclui padding e border no total da largura e altura */
         }
 
         img {
-            width: 500px; /* Largura da imagem */
+            width: 100%; /* Largura da imagem ajusta-se ao container */
+            max-width: 500px; /* Largura máxima da imagem */
             height: auto; /* Mantém a proporção da imagem */
             display: block; /* Garante que a imagem seja um bloco */
             margin: 0 auto; /* Centraliza a imagem */
         }
 
         h1 {
-            font-size: 28px; /* Tamanho do título */
+            font-size: 6vw; /* Tamanho do título ajustado à largura da tela */
             color: black; /* Cor do título */
             margin-top: 20px; /* Margem acima do título */
         }
 
         .sub-header {
-            font-size: 22px; /* Tamanho do texto */
+            font-size: 4.5vw; /* Tamanho do texto ajustado à largura da tela */
             color: black; /* Cor do texto */
             margin-top: 10px; /* Margem acima do texto */
         }
@@ -41,6 +44,7 @@
             text-decoration: none; /* Remove o sublinhado do link */
             display: inline-block; /* Para que a margem funcione corretamente */
             margin-top: 20px; /* Margem acima do link */
+            font-size: 4vw; /* Tamanho do link ajustado à largura da tela */
         }
 
         a:hover {
@@ -53,7 +57,7 @@
         <img src="images/404.png" alt="Árvore Genealógica">
         <h1>Ops, parente não encontrado! 🌱</h1>
         <p class="sub-header">
-            Talvez ele tenha se perdido no caminho... ou quem sabe Esse ramo ainda não foi encontrado!
+            Talvez ele tenha se perdido no caminho... ou quem sabe foi para um galho mais divertido!
         </p>
         <p>
             <a href="https://jsinatro.github.io/endogamiabarbalhense">Clique aqui</a> para voltar para a página inicial.
