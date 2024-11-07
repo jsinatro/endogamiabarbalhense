@@ -1,3 +1,9 @@
+/* Carregamento da fonte personalizada */ 
+@font-face {
+    font-family: 'TypewriterScribbled';
+    src: url('fonts/TypewriterScribbled.ttf') format('truetype'); 
+}
+
 /* Estilos gerais do corpo da página */
 body {
     font-family: 'TypewriterScribbled', monospace; /* Fonte utilizada para todo o texto */
