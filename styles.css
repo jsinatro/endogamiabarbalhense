@@ -1,9 +1,9 @@
 /* Carregamento da fonte personalizada */ 
 @font-face {
     font-family: 'TypewriterScribbled';
-    src: url('fonts/TypewriterScribbled.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    src: url('fonts/TypewriterScribbled.woff2') format('woff2'),
+         url('fonts/TypewriterScribbled.woff') format('woff'),
+         url('fonts/TypewriterScribbled.ttf') format('truetype');
 }
 
 /* Estilos gerais do corpo da página */
