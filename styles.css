@@ -1,7 +1,7 @@
 /* Estilos gerais do corpo da página */
 body {
-    font-family: 'DaisyWheel', monospace; /* Fonte utilizada para todo o texto */
-    src: url('fonts/daisywhl.otf') format('opentype');
+    font-family: 'TypewriterScribbled', monospace; /* Fonte utilizada para todo o texto */
+    src: url('fonts/TypewriterScribbled.ttf') format('True Type');
     margin: 0; /* Remove margens padrão */
     padding: 0; /* Remove preenchimento padrão */
     background-color: #f0f0f0; /* Cor de fundo da página */
