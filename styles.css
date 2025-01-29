@@ -20,8 +20,7 @@ header {
     align-items: center; /* Alinha itens verticalmente ao centro */
     padding: 10px; /* Espaçamento interno do cabeçalho */
     font-weight: bold;
-    max-width: 1000px; /* Largura máxima do cabeçalho */
-    width: 100%; /* Largura total do cabeçalho */
+    background-color: #454545;
 }
 
 /* Estilo do logo */
@@ -62,15 +61,14 @@ nav ul li a {
 
 /* Estilos do conteúdo principal */
 .content {
-    max-width: 800px; /* Largura máxima do conteúdo */
-    width: 100%; /* Largura total do conteúdo */
+    display: flex; /* Flexbox para exibir o conteúdo em linhas */
+    flex-direction: row; /* Direção da flexbox */
     padding: 20px; /* Espaçamento interno do conteúdo */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve atrás do texto */
-    background-color: #fff; /* Cor de fundo do conteúdo */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ao redor do conteúdo */
+    background-color: darkgrey 
 }
 
-/* Estilos da introdução */
+/* Estilo da introdução */
 .intro {
     display: flex; /* Flexbox para exibir o conteúdo em linhas */
     flex-direction: row; /* Direção da flexbox */
@@ -97,7 +95,6 @@ nav ul li a {
     background-color: #fff; /* Cor de fundo da barra lateral */
     padding: 20px; /* Espaçamento interno da barra lateral */
     border-right: 1px solid #ddd; /* Borda à direita da barra lateral */
-    display: none; /* Esconde a barra lateral */
 }
 
 /* Estilos da seção principal */
@@ -108,6 +105,8 @@ nav ul li a {
     border-left: 1px solid #ddd; /* Borda à esquerda da seção principal */
     text-align: justify;
     line-height: 1.5;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve ao redor */
+    border-radius: 4px; /* (Opcional) Suaviza os cantos */
 }
 
 /* Títulos de ancestrais diretos - destacados */
@@ -141,7 +140,6 @@ nav ul li a {
     color: #555; /* Cor dos subtítulos menores */
     margin-top: 10px; /* Margem superior para separar do conteúdo acima */
 }
-
 /* Paie e irmãos etc */
 .main h5 {
     font-size: 22px; /* Tamanho padrão para subtítulos menores */
