@@ -1,14 +1,18 @@
 /* Carregamento da fonte personalizada */ 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@font-face {
+    font-family: 'TypewriterScribbled';
+    src: url('fonts/TypewriterScribbled.woff2') format('woff2'),
+         url('fonts/TypewriterScribbled.woff') format('woff'),
+         url('fonts/TypewriterScribbled.ttf') format('truetype');
+}
 
 /* Estilos gerais do corpo da página */
 body {
-    font-family: 'Roboto', sans-serif; /* Fonte utilizada para todo o texto */
+    font-family: 'TypewriterScribbled', monospace; /* Fonte utilizada para todo o texto */
+    src: url('fonts/TypewriterScribbled.ttf') format('True Type');
     margin: 0; /* Remove margens padrão */
     padding: 0; /* Remove preenchimento padrão */
     background-color: #f0f0f0; /* Cor de fundo da página */
-    display: flex;
-    justify-content: center;
 }
 
 /* Estilos do cabeçalho */
