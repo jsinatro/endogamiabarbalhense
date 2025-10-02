@@ -1,624 +1,729 @@
+/* ==========================================================================
+   PROJETO ENDOGAMIA BARBALHENSE - TEMA CLARO 
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* [1] FUNDAÇÃO: Variáveis e Estilos Globais                                  */
+/* -------------------------------------------------------------------------- */
+
+/* :root é onde definimos as "variáveis" globais do site. 
+   É o DNA do design. Mudar uma cor ou fonte aqui afeta o site inteiro. */
 :root {
-    --color-primary: #5c4b37;
-    --color-secondary: #8d7866;
-    --color-accent: #a9927e;
-    --color-background: #f8f7f4;
-    --color-text: #3a3a3a;
-    --color-light: #ffffff;
-    --color-dark: #2e2c2a;
-    --color-border: #d6d2cb;
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --transition: all 0.3s ease;
+    /* Paleta de Cores */
+    --color-background: #ffffff; /* Cor de fundo principal da página (branco) */
+    --color-surface: #f9f9f9;    /* Um cinza muito leve para superfícies como o rodapé */
+    --color-text: #222222;       /* Cor principal para textos (preto/grafite) */
+    --color-text-muted: #555555; /* Cor para textos secundários, menos importantes */
+    --color-accent: #222222;     /* Cor de destaque (o azul-acinzentado) para links */
+    --color-button: #444444;     /* Cor de destaque (o bord⁻vinho) para botões */
+    /*--color-accent: #274c72;     */
+    /*--color-button: #9B2226;     */
+    --color-border: #dddddd;     /* Cor para bordas e linhas divisórias */
+    
+    /* Tipografia */
+    --font-heading: 'EB Garamond', serif; /* Fonte para títulos (H1, H2, etc.) */
+    --font-body: 'Lato', sans-serif;      /* Fonte para o corpo do texto (parágrafos) */
+    
+    /* Animações */
+    --transition: all 0.3s ease; /* Transição padrão para efeitos suaves (ex: hover) */
 }
 
-* {
-    margin: 0;
-    padding: 0;
+/* Reset universal: Remove margens e preenchimentos padrão de todos os elementos.
+   O `box-sizing: border-box` garante que o padding e a borda sejam incluídos 
+   na largura e altura totais do elemento, facilitando o layout. */
+*, *::before, *::after {
     box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.7;
-    color: var(--color-text);
-    background-color: var(--color-background);
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
+/* Ativa a rolagem suave quando clicamos em um link que leva para outra parte da mesma página. */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilos base para todo o corpo da página. */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.7; /* Altura da linha para melhor legibilidade */
+    font-size: 16px;
+    border-top: 5px solid var(--color-accent); /* Detalhe colorido no topo da página */
+}
+
+/* Contêiner principal que centraliza o conteúdo e limita sua largura máxima em telas grandes. */
 .container {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+    margin: 0 auto; /* O 'auto' nas laterais centraliza o contêiner */
+    padding: 0 1.5rem; /* Evita que o conteúdo cole nas bordas da tela */
 }
 
-/* Header e Navegação */
-header {
-    background-color: var(--color-dark);
-    position: sticky;
+/* Estilo padrão para todos os links (tags <a>). */
+a {
+    color: var(--color-accent);
+    text-decoration: none; /* Remove o sublinhado padrão */
+    transition: var(--transition);
+}
+
+/* Efeito ao passar o mouse sobre um link. */
+a:hover {
+    text-decoration: underline; /* Adiciona sublinhado no hover */
+}
+
+/* Estilo padrão para todos os títulos. */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text);
+    line-height: 1.3;
+}
+
+/* -------------------------------------------------------------------------- */
+/* [2] CABEÇALHO E NAVEGAÇÃO                                                  */
+/* -------------------------------------------------------------------------- */
+
+/* Estilo do cabeçalho principal. */
+.site-header {
+    background-color: var(--color-accent); /* Fundo com a cor de destaque (cores invertidas) */
+    border-bottom-color: #1e2b38; /* Borda inferior um pouco mais escura que o fundo */
+    padding: 1.5rem 0;
+    position: sticky; /* Faz o cabeçalho "grudar" no topo ao rolar a página */
     top: 0;
-    z-index: 100;
-    padding: 0.8rem 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Garante que o cabeçalho fique sobreposto a outros elementos */
 }
 
+/* Alinhamento do conteúdo do cabeçalho (título à esquerda, menu à direita). */
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* Permite que o menu quebre a linha em telas muito pequenas */
 }
 
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: var(--color-light);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
-.logo i {
-    margin-right: 8px;
-    font-size: 1.2rem;
-}
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--color-light);
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 1.8rem;
-}
-
-nav a {
-    color: var(--color-light);
-    text-decoration: none;
-    font-weight: 500;
-    transition: var(--transition);
-    font-size: 0.95rem;
-    position: relative;
-}
-
-nav a:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--color-accent);
-    transition: var(--transition);
-}
-
-nav a:hover:after {
-    width: 100%;
-}
-
-/* Seção Hero */
-.hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 6rem 2rem;
-    margin-bottom: 3rem;
-    text-align: center;
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    margin-bottom: 1.2rem;
+/* Título principal do site. */
+.site-title {
+    font-size: 2rem;
     font-weight: 700;
-    line-height: 1.2;
+    margin: 0;
 }
 
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2.5rem;
-    font-weight: 300;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+/* Cor do link do título (branco, por causa do fundo escuro). */
+.site-title a {
+    color: #ffffff;
+    text-decoration: none;
 }
+
+/* Descrição/subtítulo abaixo do título principal. */
+.site-description {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8); /* Branco com leve transparência */
+    margin: 0;
+}
+
+/* Estilo da lista do menu de navegação. */
+.main-navigation ul {
+    display: flex; /* Alinha os itens do menu horizontalmente */
+    list-style: none; /* Remove as "bolinhas" da lista */
+    gap: 1.5rem; /* Espaçamento entre os itens do menu */
+}
+
+/* Estilo dos links do menu. */
+.main-navigation a {
+    color: rgba(255, 255, 255, 0.85); /* Branco com leve transparência */
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase; /* Deixa o texto em maiúsculas */
+    letter-spacing: 1px; /* Espaçamento entre as letras */
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent; /* Borda inferior para o efeito hover */
+    text-decoration: none;
+}
+
+/* Efeito ao passar o mouse sobre os links do menu. */
+.main-navigation a:hover {
+    color: #ffffff; /* Cor do texto fica branco puro */
+    border-bottom-color: rgba(255, 255, 255, 0.5); /* Borda inferior aparece */
+    text-decoration: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/* [3] LAYOUT PRINCIPAL E SIDEBAR                                             */
+/* -------------------------------------------------------------------------- */
+
+/* Espaçamento da área de conteúdo principal. */
+.main-content-area {
+    padding: 3rem 0; /* 3rem de espaçamento vertical */
+}
+
+/* Define o layout de duas colunas (conteúdo principal + sidebar). */
+.page-with-sidebar {
+    display: grid; /* Usa CSS Grid para o layout */
+    grid-template-columns: 2fr 1fr; /* O conteúdo principal (2fr) é 2x mais largo que a sidebar (1fr) */
+    gap: 3rem; /* Espaço entre as duas colunas */
+}
+
+/* -------------------------------------------------------------------------- */
+/* [4] CONTEÚDO: Botões e Posts                                               */
+/* -------------------------------------------------------------------------- */
 
 .btn {
     display: inline-block;
-    background-color: var(--color-primary);
-    color: var(--color-light);
-    padding: 1rem 2.2rem;
+    padding: 0.6rem 1.5rem; /* <-- VALORES DIMINUÍDOS */
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    font-size: 0.85rem; /* <-- FONTE SUTILMENTE MENOR */
+    font-weight: 700;
+    letter-spacing: 1px;
     border-radius: 4px;
-    text-decoration: none;
-    font-weight: 600;
+    text-align: center;
     transition: var(--transition);
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
+    text-decoration: none;
 }
 
-.btn:hover {
-    background-color: #6d5945;
-    transform: translateY(-3px);
+/* Estilo do botão primário (usa a nova cor de botão) */
+.btn-primary {
+    background-color: var(--color-button);
+    color: #fff;
+    border: 2px solid var(--color-button);
 }
 
+/* Efeito hover do botão primário (escurece a nova cor) */
+.btn-primary:hover {
+    background-color: color-mix(in srgb, var(--color-button) 85%, black);
+    border-color: color-mix(in srgb, var(--color-button) 85%, black);
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Estilo do botão secundário (usa a nova cor de botão) */
 .btn-secondary {
     background-color: transparent;
-    border: 2px solid var(--color-primary);
-    color: var(--color-primary);
+    color: var(--color-button);
+    border: 2px solid var(--color-button);
 }
 
+/* Efeito hover do botão secundário (preenche com a nova cor) */
 .btn-secondary:hover {
-    background-color: var(--color-primary);
-    color: var(--color-light);
+    background-color: var(--color-button);
+    color: #fff;
+    text-decoration: none;
 }
 
-.btn i {
-    margin-left: 8px;
-}
-
-/* Container de botões */
-.button-container {
+/* Contêiner para os dois botões principais na página inicial. */
+.hero-buttons {
     display: flex;
     gap: 1rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--color-border);
 }
 
-/* Seção de Conteúdo */
-.content-section {
-    margin: 5rem 0;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 3.5rem;
-}
-
-.section-header h2 {
-    font-family: 'Playfair Display', serif;
-    color: var(--color-primary);
-    font-size: 2.2rem;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 12px;
-}
-
-.section-header h2:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 3px;
-    background-color: var(--color-secondary);
-}
-
-.content-text {
-    background: var(--color-light);
-    padding: 2.5rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
+/* Estilo para o contêiner de um post de blog padrão. */
+.post {
+    border-bottom: 1px solid var(--color-border); /* Linha que separa os posts */
+    padding-bottom: 2rem;
     margin-bottom: 2rem;
-    border: 1px solid var(--color-border);
 }
 
-.content-text p {
-    margin-bottom: 1.5rem;
-    font-size: 1.05rem;
-}
-
-.highlight {
-    background: rgba(92, 75, 55, 0.08);
-    border-left: 4px solid var(--color-primary);
-    padding: 1.8rem;
-    margin: 2.2rem 0;
-    font-style: italic;
-    border-radius: 6px;
-    font-size: 1.15rem;
-    color: var(--color-primary);
-    text-align: center;
-}
-
-/* Seção de Pesquisa Genealógica */
-.research-section {
-    background: url('../images/Eytzinger_-_Thesaurus_principum.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    padding: 5rem 0;
-    margin: 5rem 0;
-    position: relative;
-}
-
-.research-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8); /* 50% de transparência */
-    z-index: 1;
-}
-
-.research-content {
-    position: relative;
-    z-index: 2; /* Garante que o conteúdo fique acima da camada escura */
-    color: white;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-.research-content h2 {
-    font-family: 'Playfair Display', serif;
+/* Título do post. */
+.post-title {
     font-size: 2.2rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    color: white;
+    margin-bottom: 0.5rem;
 }
 
-.research-content p {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-/* Seção do Livro */
-.book-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3rem;
-    align-items: center;
-    margin: 5rem 0;
-}
-
-.book-image {
-    flex: 1;
-    min-width: 300px;
-    text-align: center;
-}
-
-.book-image img {
-    max-width: 100%;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--color-border);
-}
-
-.book-content {
-    flex: 2;
-    min-width: 300px;
-}
-
-.book-content h2 {
-    font-family: 'Playfair Display', serif;
-    color: var(--color-primary);
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
-}
-
-.book-content p {
-    margin-bottom: 1.5rem;
-    font-size: 1.05rem;
-}
-
-.book-features {
-    margin: 2rem 0;
-}
-
-.book-feature {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.book-feature i {
-    color: var(--color-primary);
-    font-size: 1.2rem;
-    margin-right: 1rem;
-    width: 24px;
-}
-
-/* Seção de Contribuições */
-.contributions {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2.2rem;
-    margin: 3.5rem 0;
-}
-
-.contribution-item {
-    background: var(--color-light);
-    padding: 2.2rem 1.8rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    text-align: center;
-    transition: var(--transition);
-    border: 1px solid var(--color-border);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.contribution-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.contribution-icon {
-    font-size: 2.5rem;
-    color: var(--color-primary);
-    margin-bottom: 1.5rem;
-    background: rgba(92, 75, 55, 0.1);
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
-    border-radius: 50%;
-    margin: 0 auto 1.5rem;
-}
-
-.contribution-item h3 {
-    margin-bottom: 1rem;
-    color: var(--color-primary);
-    font-size: 1.4rem;
-}
-
-.contribution-item p {
-    color: #555;
-    flex-grow: 1;
-}
-
-/* Seção de Formulário */
-.form-section {
-    background: var(--color-light);
-    padding: 3.5rem 2.8rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    margin: 4rem 0;
-    border: 1px solid var(--color-border);
-}
-
-.form-section h2 {
-    margin-bottom: 2.5rem;
-    text-align: center;
-}
-
-.form-group {
-    margin-bottom: 1.8rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.7rem;
-    font-weight: 600;
-    color: var(--color-primary);
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 0.9rem;
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    transition: var(--transition);
-    background-color: #fcfbfa;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 2px rgba(92, 75, 55, 0.2);
-}
-
-.form-group textarea {
-    min-height: 160px;
-    resize: vertical;
-}
-
-/* Footer */
-footer {
-    background-color: var(--color-dark);
-    color: var(--color-light);
-    padding: 3.5rem 0 2rem;
-    margin-top: 5rem;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2.5rem;
-}
-
-.footer-section h3 {
-    margin-bottom: 1.5rem;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    position: relative;
-    padding-bottom: 8px;
-}
-
-.footer-section h3:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 2px;
-    background-color: var(--color-secondary);
-}
-
-.footer-section p, .footer-section li {
-    margin-bottom: 0.9rem;
-    opacity: 0.85;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section a {
-    color: var(--color-light);
+.post-title a {
+    color: var(--color-text);
     text-decoration: none;
-    transition: var(--transition);
 }
-
-.footer-section a:hover {
+.post-title a:hover {
     color: var(--color-accent);
 }
 
+/* Metadados do post (autor, data). */
+.post-meta {
+    display: flex;
+    gap: 1.5rem;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Ícones dentro dos metadados. */
+.post-meta i {
+    margin-right: 0.5rem;
+}
+
+/* Parágrafos dentro do conteúdo de um post. */
+.post-content p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* Link "Continue lendo". */
+.read-more {
+    font-weight: 700;
+}
+
+/* -------------------------------------------------------------------------- */
+/* [5] SIDEBAR E WIDGETS                                                      */
+/* -------------------------------------------------------------------------- */
+
+/* Contêiner da barra lateral. */
+.sidebar {
+    display: flex;
+    flex-direction: column; /* Organiza os widgets verticalmente */
+    gap: 2rem; /* Espaço entre os widgets */
+}
+
+/* Estilo de cada "caixa" (widget) dentro da sidebar. */
+.widget {
+    border: 1px solid var(--color-border);
+    padding: 1.5rem;
+}
+
+/* Título de um widget. */
+.widget-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+}
+/* Texto de um widgets */
+.widget p {
+    text-align: justify;
+}
+
+/* Formulário de pesquisa. */
+.search-form {
+    display: flex; /* Alinha o campo de input e o botão lado a lado */
+}
+
+/* Campo de texto da pesquisa. */
+.search-form input {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    padding: 0.75rem;
+    border-radius: 4px 0 0 4px; /* Arredonda só os cantos da esquerda */
+}
+
+/* Botão de pesquisa. */
+.search-form button {
+    background-color: var(--color-accent);
+    color: #fff;
+    border: none;
+    padding: 0 1rem;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0; /* Arredonda só os cantos da direita */
+}
+
+/* Contêiner dos métodos de contribuição na sidebar. */
+.contribution-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Cada item de contribuição (Fotografias, Documentos, etc.). */
+.contribution-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}
+
+.contribution-item:hover {
+    background-color: var(--color-surface);
+    border-color: var(--color-accent);
+    text-decoration: none;
+}
+
+/* Ícone de um item de contribuição. */
+.contribution-icon {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+}
+
+/* Título (H4) de um item de contribuição. */
+.contribution-text h4 {
+    color: var(--color-text);
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* [6] RODAPÉ                                                                 */
+/* -------------------------------------------------------------------------- */
+
+/* Estilo geral do rodapé. */
+.site-footer {
+    background-color: var(--color-surface);
+    color: var(--color-text-muted);
+    padding: 4rem 0 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid var(--color-border);
+}
+
+/* Layout em grid para os widgets do rodapé. */
+.footer-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grid responsivo */
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+/* Campos do formulário de contato no rodapé. */
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+/* Ícones das redes sociais. */
 .social-icons {
     display: flex;
-    gap: 0.8rem;
-    margin-top: 1.2rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 .social-icons a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    transition: var(--transition);
+    color: var(--color-text-muted);
+    font-size: 1.2rem;
 }
 
 .social-icons a:hover {
-    background: var(--color-primary);
+    color: var(--color-accent);
 }
 
+/* Texto de copyright no final da página. */
 .copyright {
     text-align: center;
-    margin-top: 3.5rem;
-    padding-top: 1.8rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    opacity: 0.7;
-    font-size: 0.9rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.85rem;
 }
 
-/* Responsividade */
+/* -------------------------------------------------------------------------- */
+/* [7] ESTILO "PÁGINA DE LIVRO" (Específico para a classe .page-book)         */
+/* -------------------------------------------------------------------------- */
+/* Este bloco de estilos SÓ funciona em páginas que têm a classe "page-book" na tag <body>. */
+
+/* Estilo principal do post na página do livro (efeito de papel antigo). */
+.page-book .post {
+    background-color: #fdfaf3; /* Cor de pergaminho */
+    border: 1px solid #e9e4d8;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1); /* Sombra que dá profundidade */
+    padding: 2.5rem 3rem;
+    border-bottom: none; /* Remove a borda padrão que separa posts */
+}
+
+/* Título do post na página do livro (centralizado). */
+.page-book .post-title {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+/* Metadados na página do livro. */
+.page-book .post-meta {
+    justify-content: center;
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Conteúdo do texto na página do livro. */
+.page-book .post-content {
+    font-family: var(--font-heading); /* Usa a fonte de título (serifada) para parecer um livro */
+    font-size: 1.1rem;
+    color: #333; /* Cor de texto um pouco mais suave */
+}
+
+/* Parágrafos na página do livro (justificados e com recuo). */
+.page-book .post-content p {
+    text-align: justify; /* Alinhamento justificado, como em livros */
+    text-indent: 2.5em; /* Recuo na primeira linha de cada parágrafo */
+    margin-bottom: 0;
+}
+
+/* Remove o recuo do primeiro parágrafo, pois ele não é necessário. */
+.page-book .post-content p:first-of-type {
+    text-indent: 0;
+}
+
+/* Efeito de LETRA CAPITULAR (Drop Cap) - COMENTADO/DESATIVADO.
+   Para reativar, remova o '/*' e o '*/' que envolvem esta regra. 
+.page-book .post-content p:first-of-type::first-letter {
+    font-size: 4.5em;
+    font-weight: bold;
+    float: left;
+    line-height: 0.8;
+    padding-right: 0.15em;
+    padding-bottom: 0.05em;
+    color: var(--color-accent);
+}
+*/
+
+/* Link "Continue lendo" na página do livro (estilo clássico). */
+.page-book .read-more {
+    display: block;
+    text-align: right;
+    margin-top: 1.5rem;
+    font-family: var(--font-heading);
+    font-variant: small-caps; /* Estilo de letra "versalete" */
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* -------------------------------------------------------------------------- */
+/* [9] WIDGET DE ÍNDICE DA PÁGINA (Table of Contents)                         */
+/* -------------------------------------------------------------------------- */
+/* Estilos para a lista do índice que é gerada por JavaScript na página do livro. */
+
+#toc-list ul {
+    list-style: none;
+    padding-left: 0.5rem;
+}
+
+#toc-list li {
+    padding: 0.4rem 0;
+}
+
+#toc-list a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 3px solid var(--color-border); /* Linha à esquerda para indicar o item */
+    padding-left: 0.75rem;
+    display: block;
+}
+
+#toc-list a:hover {
+    color: var(--color-accent);
+    border-left-color: var(--color-accent);
+    text-decoration: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/* [8] RESPONSIVIDADE (MOBILE FIRST)                                          */
+/* -------------------------------------------------------------------------- */
+
+/* Esconde o botão do menu em telas grandes */
+.menu-toggle {
+    display: none;
+}
+
+/* Media Query: Aplica estes estilos em telas com largura máxima de 768px */
 @media (max-width: 768px) {
+    
+    /* --- AJUSTES GERAIS DE LAYOUT --- */
+    .container {
+        padding: 0 1rem; /* Diminui o espaçamento lateral */
+    }
+    
+    .page-with-sidebar {
+        grid-template-columns: 1fr; /* Transforma o layout em uma única coluna */
+        gap: 2rem;
+    }
+
+    /* --- CABEÇALHO E MENU HAMBÚRGUER --- */
     .header-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.8rem;
+        position: relative;
     }
     
-    .menu-toggle {
-        display: block;
-        position: absolute;
-        right: 1.5rem;
-        top: 1rem;
-    }
-    
-    nav {
-        width: 100%;
+    /* Esconde a descrição do site no celular para economizar espaço */
+    .site-description {
         display: none;
     }
-    
-    nav.active {
+
+    /* Mostra o botão do menu hambúrguer */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 1001; /* Garante que o botão fique acima do menu */
+    }
+
+    /* Esconde o menu de navegação por padrão no celular */
+    .main-navigation {
+        display: none;
+        position: absolute;
+        top: 100%; /* Começa logo abaixo do cabeçalho */
+        left: 0;
+        width: 100%;
+        background-color: var(--color-accent);
+        border-top: 1px solid #1e2b38;
+        padding: 1rem 0;
+    }
+
+    /* Quando o menu está ativo (classe adicionada via JS), ele aparece */
+    .main-navigation.is-active {
         display: block;
     }
-    
-    nav ul {
+
+    /* Transforma a lista do menu em uma coluna vertical */
+    .main-navigation ul {
         flex-direction: column;
-        margin-top: 1rem;
-        gap: 0.5rem;
+        align-items: center;
+        gap: 0;
+    }
+
+    .main-navigation li {
+        width: 100%;
+        text-align: center;
     }
     
-    nav li {
-        margin-bottom: 0.5rem;
+    .main-navigation a {
+        padding: 1rem;
+        display: block; /* Faz o link ocupar toda a largura do item */
+        border-bottom: none;
     }
-    
-    .hero {
-        padding: 4rem 1.5rem;
+
+    .main-navigation a:hover {
+        background-color: #1e2b38;
+        border-bottom: none;
     }
-    
-    .hero h1 {
+
+    /* --- BOTÕES E CONTEÚDO --- */
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 320px; /* Limita a largura máxima dos botões */
+    }
+
+    /* Ajusta o tamanho dos títulos para telas menores */
+    .post-title {
+        font-size: 1.8rem;
+    }
+
+    .page-book .post-title {
         font-size: 2rem;
     }
     
-    .hero p {
-        font-size: 1.1rem;
-    }
-    
-    .content-text {
-        padding: 1.8rem 1.5rem;
-    }
-    
-    .research-section {
-        padding: 3rem 0;
-        background-attachment: scroll;
-    }
-    
-    .research-content h2 {
-        font-size: 1.8rem;
-    }
-    
-    .book-section {
-        flex-direction: column;
-        gap: 2rem;
-    }
-    
-    .form-section {
-        padding: 2.5rem 1.8rem;
-    }
-    
-    .contributions {
-        grid-template-columns: 1fr;
-        gap: 1.8rem;
-    }
-    
-    .section-header {
-        margin-bottom: 2.5rem;
-    }
-    
-    .section-header h2 {
-        font-size: 1.8rem;
-    }
-    
-    .button-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .button-container .btn {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 0.5rem;
+    /* Ajusta espaçamento do post na pág. do livro */
+    .page-book .post {
+        padding: 1.5rem;
     }
 }
+/* -------------------------------------------------------------------------- */
+/* [10] ESPAÇAMENTO E RITMO VERTICAL (Página do Livro)                       */
+/* -------------------------------------------------------------------------- */
+/* Este bloco controla o espaçamento vertical entre os títulos SÓ na página do livro, 
+   para criar uma hierarquia clara. */
 
-@media (min-width: 769px) {
-    .menu-toggle {
-        display: none;
-    }
-    
-    nav {
-        display: block !important;
-    }
-    
-    .button-container {
-        justify-content: flex-start;
-    }
+/* Remove margens padrão para termos controle total. */
+.page-book .post-content h1,
+.page-book .post-content h2,
+.page-book .post-content h3,
+.page-book .post-content h4 {
+    margin: 0;
+}
+
+/* Espaçamento para o Título Principal do Livro (H1). */
+.page-book .post-content h1 {
+    margin-bottom: 2.5rem; 
+}
+
+/* Espaçamento para Títulos de Capítulo (H2). */
+.page-book .post-content h2 {
+    margin-top: 3rem;    /* Mais espaço ANTES de um novo capítulo */
+    margin-bottom: 2rem;
+}
+
+/* Espaçamento para Sub-seções (H3). */
+.page-book .post-content h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Espaçamento para cada Nome/Entrada (H4). */
+.page-book .post-content h4 {
+    margin-top: 2rem;       /* Cria separação do parágrafo anterior */
+    margin-bottom: 0.5rem;  /* Pouco espaço abaixo para conectar com seu parágrafo */
+}
+
+/* Estilo para o separador <hr> na página do livro. */
+.page-book .post-content .section-divider {
+    height: 1px;
+    width: 60%;
+    background-color: var(--color-border);
+    border: 0;
+    margin: 3rem auto; /* Bom espaçamento vertical e centralização */
+}
+/* -------------------------------------------------------------------------- */
+/* [11] ESTILOS PARA DOCUMENTO EMBUTIDO (IMAGEM + TRANSCRIÇÃO)                */
+/* -------------------------------------------------------------------------- */
+
+/* Contêiner para a imagem e sua legenda */
+.document-embed {
+    margin: 2.5rem 0 1.5rem 0; /* Espaçamento vertical */
+}
+
+.document-embed img {
+    width: 100%; /* Faz a imagem ocupar a largura disponível */
+    height: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}
+
+.document-embed figcaption {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-top: 0.75rem;
+    font-style: italic;
+}
+
+/* Estilo para a citação com a transcrição */
+.transcription {
+    margin: 0 0 2.5rem 0;
+    padding-left: 1.5rem;
+    border-left: 4px solid var(--color-border);
+    font-style: italic;
+    color: var(--color-text-muted);
+    font-family: var(--font-heading); /* Usa a fonte Garamond para um toque clássico */
+}
+
+.transcription p {
+    margin-bottom: 1rem;
+}
+
+.transcription cite {
+    font-style: normal;
+    font-size: 0.9rem;
+    display: block;
+    color: var(--color-text);
+}
+/* -------------------------------------------------------------------------- */
+/* [12] ESTILOS PARA FOTOS DE PESSOAS NA PÁGINA DO LIVRO                      */
+/* -------------------------------------------------------------------------- */
+
+/* Contêiner para centralizar a foto */
+.page-book .person-photo-container {
+    text-align: letf; /* Centraliza a imagem dentro do contêiner */
+    margin: 1.5rem 0; /* Espaçamento acima e abaixo da foto */
+}
+
+/* Estilo da foto em si (simulando 3x4) */
+.page-book .person-photo {
+    width: 100px;  /* Largura fixa da foto */
+    height: 125px; /* Altura fixa (proporção 3x4 aproximada) */
+    object-fit: cover; /* Garante que a imagem preencha a área sem distorcer */
+    border: 1px solid var(--color-border);
+    border-radius: 4px; /* Levemente arredondada */
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
 }
