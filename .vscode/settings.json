@@ -3,5 +3,8 @@
     "notebook.defaultFormatter": "DanielSanMedium.dscodegpt",
     "editor.defaultFoldingRangeProvider": "DanielSanMedium.dscodegpt",
     "editor.defaultFormatter": "DanielSanMedium.dscodegpt",
-    "CodeGPT.query.language": "Portuguese"
+    "CodeGPT.query.language": "Portuguese",
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    }
 }
