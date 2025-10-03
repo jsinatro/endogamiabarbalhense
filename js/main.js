@@ -90,4 +90,50 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // ========================================================================
+// FUNCIONALIDADE 5: GALERIA DE FOTOS (LIGHTBOX)
+// ========================================================================
+function setupGallery() {
+    const modal = document.getElementById("gallery-modal");
+    if (!modal) return; // Só executa se estiver na página da galeria
+
+    const modalImg = document.getElementById("modal-img");
+    const captionText = document.getElementById("caption");
+    const galleryItems = document.querySelectorAll(".gallery-item img");
+    const closeButton = document.querySelector(".close-button");
+
+    // Para cada miniatura, adiciona um evento de clique
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.dataset.caption; // Pega a legenda do atributo 'data-caption'
+        });
+    });
+
+    // Função para fechar o modal
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    // Fecha ao clicar no botão 'X'
+    closeButton.addEventListener('click', closeModal);
+
+    // Fecha ao clicar fora da imagem (no fundo escuro)
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Fecha ao pressionar a tecla 'Esc'
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "Escape" && modal.style.display === "block") {
+            closeModal();
+        }
+    });
+}
+
+// Roda a função da galeria quando a página carrega
+document.addEventListener('DOMContentLoaded', setupGallery);
 });

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endogamia Barbalhense: Galeria</title>
+    <meta name="description" content="Galeria de fotos e documentos históricos das famílias da região de Barbalha.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-content">
+            <div class="site-logo">
+                <a href="index.html">
+                    <i class="fas fa-tree logo-icon"></i>
+                    <span>Endogamia Barbalhense</span>
+                </a>
+            </div>
+            <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="main-navigation" id="main-menu">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="livro.html">Livro</a></li>
+                    <li><a href="galeria.html">Galeria</a></li>
+                    <li><a href="arvore.html">Árvore</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content-area container">
+        <h2 class="page-title">Galeria de Fotos</h2>
+        
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+                <img src="images/foto_exemplo_1.jpg" alt="Descrição da foto 1" data-caption="Legenda para a Foto 1. Ex: Família Sousa, 1952.">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/foto_exemplo_2.jpg" alt="Descrição da foto 2" data-caption="Legenda para a Foto 2. Ex: Casamento de João e Maria, 1960.">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/documento_exemplo_1.jpg" alt="Descrição do documento 1" data-caption="Legenda para o Documento 1. Ex: Certidão de nascimento.">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/pessoa.jpg" alt="Descrição da foto 3" data-caption="Legenda para a Foto 3.">
+            </div>
+
+            </div>
+    </div>
+
+    <div id="gallery-modal" class="modal">
+        <span class="close-button">&times;</span>
+        <img class="modal-content" id="modal-img">
+        <div id="caption" class="caption"></div>
+    </div>
+
+
+    <footer class="site-footer" id="contato">
+        </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

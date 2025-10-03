@@ -727,3 +727,172 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 4px; /* Levemente arredondada */
     box-shadow: 2px 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
 }
+/* -------------------------------------------------------------------------- */
+/* [13] ESTILOS DA PÁGINA DE GALERIA                                          */
+/* -------------------------------------------------------------------------- */
+
+.page-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 1.5rem;
+}
+
+/* Grid que segura as miniaturas */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Contêiner de cada miniatura */
+.gallery-item {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    display: block;
+    transition: var(--transition);
+}
+
+/* Efeito de zoom suave ao passar o mouse */
+.gallery-item:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* -------------------------------------------------------------------------- */
+/* [14] ESTILOS DO MODAL DA GALERIA (LIGHTBOX)                                */
+/* -------------------------------------------------------------------------- */
+
+/* Fundo escuro que cobre a página */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    padding: 2rem;
+}
+
+/* A imagem grande dentro do modal */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+}
+
+/* A legenda da imagem */
+.caption {
+    margin: 1rem auto 0;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    font-size: 1.1rem;
+    font-family: var(--font-heading);
+}
+
+/* Botão de fechar (X) */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+}
+/* -------------------------------------------------------------------------- */
+/* [15] PÁGINA ÁRVORE GENEALÓGICA                                             */
+/* -------------------------------------------------------------------------- */
+
+.tree-container {
+    background-color: var(--color-surface);
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+/* A lista principal da árvore */
+.family-tree {
+    list-style: none;
+    padding: 0;
+}
+
+/* Cada nível de geração (filhos, netos, etc.) */
+.family-tree ul {
+    list-style: none;
+    padding-left: 2rem; /* O recuo que cria a hierarquia */
+    margin-top: 0.5rem;
+}
+
+/* Cada item (pessoa/família) na árvore */
+.family-tree li {
+    position: relative;
+    padding: 0.5rem 0 0.5rem 1.5rem; /* Espaçamento para a linha vertical */
+}
+
+/* Linha vertical que conecta os níveis */
+.family-tree li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background-color: var(--color-border);
+}
+
+/* Linha horizontal que conecta a pessoa à linha vertical */
+.family-tree li::after {
+    content: '';
+    position: absolute;
+    top: 1.25rem; /* Alinha com o meio do texto */
+    left: 0;
+    width: 1rem; /* Comprimento da linha */
+    height: 1px;
+    background-color: var(--color-border);
+}
+
+/* Remove a linha vertical do último filho para um acabamento limpo */
+.family-tree li:last-child::before {
+    height: 1.25rem;
+}
+
+.person-name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.person-details {
+    font-size: 0.9em;
+    color: var(--color-text-muted);
+    font-style: italic;
+}

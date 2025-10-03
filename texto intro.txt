@@ -1,3 +1,23 @@
+Ok, agora acesse o meu repositório https://github.com/jsinatro/endogamiabarbalhense.git e me explique como: 
+
+## o que quero.  
+ 1. que o cabeçallho onde está o menu, fica da seguinte forma.  
+
+ >os menus continuam onde estão, mas o 'A conexão familiar dos Alves de Sousa, Viardo, Saraiva, Vidal de Lima, Silva Caldas e outros sobrenomes' sai e fica só o 'Endogamia Barbalhense' com o icone de árvore em branco ao lado esquedo da palavra 'endogamia' como se fosse o icone do site. 
+
+ >essa parte será visivel sempre em todo o site. 
+
+ 2. Abaixo disso terá uma sessão com uma foto de funto que pegue toda a largura da página. 
+
+ >com o título centralizado: 'Endogamia Barbalhense' e o subtitulo, abaixo do titulo, com uma fonte bem pequena, 'A conexão familiar dos Alves de Sousa, Viardo, Saraiva, Vidal de Lima, Silva Caldas e outros sobrenomes' 
+
+ >abaixo desse texto, ficarão os botões 'contibuir com o livro' e ler o livro, alinhados a esquerda (futuramente edicionarei novos botões). 
+
+ > Essa parte será visivel também em todas as páginas do site, porém, diferente do cabeçalho onde tem os menus, ele rola junto com a página ao rolar a página. 
+
+-----
+
+
 <p>Quando as sombras do tempo se alongam sobre os pilares da memória, uma voz ecoa através dos séculos, sussurrando: “As pessoas só morrem quando são esquecidas”. É nesse espírito de conexão com nossas raízes e na busca por manter viva a chama da história familiar que este espaço se transforma em uma jornada compartilhada.</P>
 
 <p>No dia 26 de novembro de 2021, dei início a uma investigação que se revelaria muito mais do que uma mera busca por nomes e datas, mas um profundo mergulho nas complexas histórias que compõem a tapeçaria de nossos antepassados. Minha pesquisa me levou a descobrir que nossa família é vasta e repleta de acontecimentos significativos. O primeiro antepassado que encontrei foi o Capitão Reinaldo Alves de Sousa, cuja certidão de batismo datada de 7 de maio de 1840 marca o início dessa jornada. Reinaldo se destacou como uma figura de relevância em nossa genealogia, representando um elo vital em nossa história.
