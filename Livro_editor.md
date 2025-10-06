@@ -35,7 +35,7 @@ em **Juquitiba - SP** no dia 30 de novembro de 2013.
 
 #### 1.2. Maria Bianca Machado Wakatsuki
 
-Filha legítima de um japonês e Maria Evangelina Machado. Neta pelo lado
+Filha de um japonês e Maria Evangelina Machado. Neta pelo lado
 materno de João dos Reis Machado (☆1904-♱1967) e Yole Montoro
 (☆1914-♱????). Nasceu no dia 14 de julho de 1976. Batizada no dia 26 de
 dezembro de 1976 pelo **Padre Mauro Pastoors** tendo como padrinhos
