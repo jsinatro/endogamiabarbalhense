@@ -896,3 +896,96 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-text-muted);
     font-style: italic;
 }
+/* =======================================================
+   BOTÃO FLUTUANTE "LER O LIVRO" - ÍCONE PERSONALIZADO
+   ======================================================= */
+
+.float-btn-container.left {
+  position: fixed;
+  bottom: 15px;
+  left: 15px; 
+  z-index: 99999;
+}
+
+/* Botão circular */
+.float-btn {
+  width: 56px;             
+  height: 56px;
+  border-radius: 50%;
+  background-color: transparent; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+
+/* Ícone personalizado */
+.float-btn-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* garante que a imagem preencha o círculo */
+  border-radius: 50%;  /* mantém o formato circular */
+}
+
+/* Tooltip */
+.float-tooltip {
+  position: absolute;
+  left: 70px;                 
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #0c0402;
+  color: #fff;
+  font-size: 14px;
+  font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  padding: 8px 14px;
+  border-radius: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.float-btn:hover .float-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(4px);
+}
+
+/* Hover no botão */
+.float-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Flutuação leve contínua */
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.float-btn {
+  animation: floatUp 5s ease-in-out infinite;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .float-btn-container.left {
+    bottom: 10px;
+    left: 10px;
+  }
+  .float-btn {
+    width: 50px;
+    height: 50px;
+  }
+  .float-btn-icon {
+    padding: 0;
+  }
+  .float-tooltip {
+    font-size: 12px;
+    padding: 6px 10px;
+    left: 60px;
+  }
+}
