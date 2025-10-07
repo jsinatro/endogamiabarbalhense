@@ -1,0 +1,89 @@
+/* ------------------------------------------
+   css/ctc.css — Click-to-Chat (elegante)
+   ÍCONE À ESQUERDA + TEXTO À DIREITA
+   ------------------------------------------ */
+
+:root {
+  --ctc-bg: #0c0402;
+  --ctc-text: #ffffff;
+  --ctc-accent-1: #20b038;
+  --ctc-accent-2: #60d66a;
+  --ctc-size: 56px;
+  --ctc-gap: 14px;
+  --ctc-radius: 14px;
+  --ctc-z: 99999999;
+  --ctc-shadow: 0 10px 30px rgba(16,16,16,0.35);
+}
+
+/* ==========================
+   Container fixo do botão
+   ========================== */
+#ht-ctc-chat {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: var(--ctc-z);
+  display: flex;
+  align-items: center;
+  gap: var(--ctc-gap);
+  pointer-events: auto;
+  font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+
+  /* 🔁 mudança principal:
+     Inverte a direção para o ícone ficar à esquerda
+     e o texto à direita */
+  flex-direction: row-reverse;
+}
+
+/* ==========================
+   Rótulo (texto)
+   ========================== */
+#ht-ctc-chat .ctc-label {
+  background: var(--ctc-bg);
+  color: var(--ctc-text);
+  padding: 10px 16px;
+  border-radius: var(--ctc-radius);
+  font-size: 14px;
+  line-height: 1;
+  box-shadow: var(--ctc-shadow);
+  transform: translateX(-12px) scale(.98);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .22s cubic-bezier(.2,.9,.2,1), opacity .22s ease;
+  will-change: transform, opacity;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* Mostra o rótulo quando hover */
+#ht-ctc-chat:hover .ctc-label,
+#ht-ctc-chat.ctc-open .ctc-label {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ==========================
+   Botão circular (ícone)
+   ========================== */
+#ht-ctc-chat .ctc-button {
+  width: var(--ctc-size);
+  height: var(--ctc-size);
+  min-width: var(--ctc-size);
+  min-height: var(--ctc-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(180deg, var(--ctc-accent-1) 0%, var(--ctc-accent-2) 100%);
+  box-shadow: 0 8px 24px rgba(0,0,0,.28);
+  transition: transform .18s ease, box-shadow .18s ease;
+  cursor: pointer;
+  padding: 8px;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+}
+
+/* Efeito flutuar */
+#ht-ctc-chat .ctc-button:hover {
+  transform: translateY(-4px
