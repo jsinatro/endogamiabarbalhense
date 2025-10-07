@@ -417,8 +417,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Estilo principal do post na página do livro (efeito de papel antigo). */
 .page-book .post {
-    background-color: #fdfaf3; /* Cor de pergaminho */
-    border: 1px solid #e9e4d8;
+    background-color: #F5F5F5; /* Fundo bege claro para simular papel antigo */
+    border: 1px solid #e9d8d8; /* Borda clara para simular papel antigo */
     box-shadow: 5px 5px 15px rgba(0,0,0,0.1); /* Sombra que dá profundidade */
     padding: 2.5rem 3rem;
     border-bottom: none; /* Remove a borda padrão que separa posts */
