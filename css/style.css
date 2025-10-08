@@ -989,3 +989,22 @@ h1, h2, h3, h4, h5, h6 {
     left: 60px;
   }
 }
+/* ...código existente... */
+@media (max-width: 900px) {
+    .main-navigation {
+        display: none;
+        position: absolute;
+        top: 60px; /* ajuste conforme seu header */
+        left: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 1000;
+    }
+    .main-navigation.menu-open {
+        display: block;
+    }
+    .menu-toggle {
+        display: block;
+    }
+}
+/* ...código existente... */
