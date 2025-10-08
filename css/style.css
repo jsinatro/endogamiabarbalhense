@@ -991,14 +991,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* ...código existente... */
 @media (max-width: 900px) {
-    .main-navigation {
+     .main-navigation {
         display: none;
         position: absolute;
-        top: 60px; /* ajuste conforme seu header */
+        top: 100%; /* Começa logo abaixo do cabeçalho */
         left: 0;
         width: 100%;
-        background: #fff;
-        z-index: 1000;
+        background-color: var(--color-accent);
+        border-top: 1px solid #1e2b38;
+        padding: 1rem 0;
+    }
+
+    /* Quando o menu está ativo (classe adicionada via JS), ele aparece */
+    .main-navigation.menu-open {
+        display: block;
     }
     .main-navigation.menu-open {
         display: block;
