@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mail($destinatario, $assunto, $corpo_email, $headers)) {
         // Se o envio foi bem-sucedido, redireciona o usuário para uma página de "obrigado"
         // É uma boa prática ter essa página para confirmar o envio ao usuário.
-        header("Location: obrigado.html");
+        header("Location: livro.html");
         exit;
     } else {
         // Se houve um problema no servidor ao tentar enviar
