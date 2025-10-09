@@ -102,7 +102,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Título principal do site. */
 .site-title {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 700;
     margin: 0;
 }
@@ -1013,33 +1013,30 @@ h1, h2, h3, h4, h5, h6 {
         display: block;
     }
 }
-/* Banner fotográfico principal */
 .hero-banner {
     position: relative;
     width: 100%;
-    height: 400px; /* você pode ajustar a altura */
-    background: url('images/banner.jpg') center/cover no-repeat;
+    height: 300px;
+    background: url('https://lh7-rt.googleusercontent.com/formsz/AN7BsVCgJVL0KIpAiyjqXTVHEhtsb4Lbj-ejYWoyDJmVbamfM1n_P2DIEWZfJQrszoB_Tu5afhW5zQZRaeP0RS-otNpq5vE3VJk1-OdW6JKV5MkhMqBsskYwAWbumIrwlPbwqEFKSRkikSz7jGQZ9QNrupMzmegsVix5KTVGwlHVkQj2FcZ7oLgh7avSoWrfobvdlUpxD7xisy7WKAzV=w4620?key=4-CtCkOhcIcW1sczIiDmvA') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
     text-align: center;
-    font-family: 'EB Garamond', serif; /* combina com seu site */
+    font-family: 'EB Garamond', serif;
     overflow: hidden;
 }
 
-/* Transparência de 50% */
 .hero-banner .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* preto 50% de transparência */
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
-/* Conteúdo do banner */
 .hero-banner .hero-content {
     position: relative;
     z-index: 2;
@@ -1049,6 +1046,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-banner h2 {
     font-size: 2.5rem;
     margin-bottom: 10px;
+    color: antiquewhite; /* branco antigo */
 }
 
 .hero-banner p {
@@ -1056,3 +1054,4 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 800px;
     margin: 0 auto;
 }
+
