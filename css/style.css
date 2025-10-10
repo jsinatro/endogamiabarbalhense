@@ -460,8 +460,9 @@ h1, h2, h3, h4, h5, h6 {
     text-indent: 0;
 }
 
+/*
 /* Efeito de LETRA CAPITULAR (Drop Cap) - COMENTADO/DESATIVADO.
-   Para reativar, remova o '/*' e o '*/' que envolvem esta regra. 
+   Para reativar, remova o e o  que envolvem esta regra. 
 .page-book .post-content p:first-of-type::first-letter {
     font-size: 4.5em;
     font-weight: bold;
@@ -470,8 +471,8 @@ h1, h2, h3, h4, h5, h6 {
     padding-right: 0.15em;
     padding-bottom: 0.05em;
     color: var(--color-accent);
-}
-*/
+}*/
+
 
 /* Link "Continue lendo" na página do livro (estilo clássico). */
 .page-book .read-more {
@@ -1020,7 +1021,7 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     width: 100%;
     height: 300px;
-    background: url('https://lh7-rt.googleusercontent.com/formsz/AN7BsVCgJVL0KIpAiyjqXTVHEhtsb4Lbj-ejYWoyDJmVbamfM1n_P2DIEWZfJQrszoB_Tu5afhW5zQZRaeP0RS-otNpq5vE3VJk1-OdW6JKV5MkhMqBsskYwAWbumIrwlPbwqEFKSRkikSz7jGQZ9QNrupMzmegsVix5KTVGwlHVkQj2FcZ7oLgh7avSoWrfobvdlUpxD7xisy7WKAzV=w4620?key=4-CtCkOhcIcW1sczIiDmvA') center/cover no-repeat;
+    background: url("/images/unnamed.png") center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
