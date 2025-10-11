@@ -59,36 +59,68 @@ document.addEventListener('DOMContentLoaded', function() {
         document.head.appendChild(style);
     }
     
-    // ========================================================================
-    // FUNCIONALIDADE 3: ÍNDICE DINÂMICO (Table of Contents)
-    // ========================================================================
-    const tocWidget = document.getElementById('toc-widget');
-    const tocList = document.getElementById('toc-list');
-    const contentArea = document.getElementById('main-content');
+// ========================================================================
+// FUNCIONALIDADE 3: ÍNDICE DINÂMICO (Table of Contents) com hierarquia
+// ========================================================================
 
-    if (tocWidget && tocList && contentArea) {
-        // Procura por todos os títulos h4 dentro do conteúdo principal
-        const headings = contentArea.querySelectorAll('h4');
+// Referências aos elementos do DOM
+const tocWidget = document.getElementById('toc-widget');     // Container do widget
+const tocList = document.getElementById('toc-list');         // Área onde a lista será inserida
+const contentArea = document.getElementById('main-content'); // Área principal do conteúdo
 
-        if (headings.length > 0) {
-            const ul = document.createElement('ul');
-            headings.forEach((heading, index) => {
-                const anchorId = `toc-heading-${index}`;
-                heading.id = anchorId;
+// Verifica se todos os elementos existem
+if (tocWidget && tocList && contentArea) {
+    // Seleciona todos os títulos h1 a h6 dentro do conteúdo principal
+    const headings = contentArea.querySelectorAll('h1, h2, h3, h4, h5, h6');
 
-                const li = document.createElement('li');
-                const a = document.createElement('a');
-                a.textContent = heading.textContent;
-                a.href = `#${anchorId}`;
-                
-                li.appendChild(a);
-                ul.appendChild(li);
+    // Se houver títulos, começa a construir o índice
+    if (headings.length > 0) {
+        const tocRoot = document.createElement('ul'); // Raiz da lista
+        let currentLevels = [tocRoot]; // Pilha para controlar os níveis de profundidade
+
+        // Itera sobre cada título encontrado
+        headings.forEach((heading, index) => {
+            const level = parseInt(heading.tagName.substring(1)); // Extrai o nível (1 a 6)
+            const anchorId = `toc-heading-${index}`;              // ID único para âncora
+            heading.id = anchorId;                                // Define o ID no título original
+
+            // Cria o item da lista e o link
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.textContent = heading.textContent;
+            a.href = `#${anchorId}`;
+            li.appendChild(a);
+
+            // Adiciona evento de clique no link para expandir/recolher subníveis
+            a.addEventListener('click', (e) => {
+                const sublist = li.querySelector('ul'); // Verifica se há subnível
+                if (sublist) {
+                    e.preventDefault(); // Impede rolagem automática
+                    sublist.classList.toggle('collapsed'); // Alterna visibilidade
+                }
             });
 
-            tocList.appendChild(ul);
-            tocWidget.style.display = 'block'; // Torna o widget visível
-        }
+            // Garante que a pilha tenha profundidade suficiente
+            while (currentLevels.length < level) {
+                const newUl = document.createElement('ul');
+                newUl.classList.add('collapsed'); // Começa recolhido
+                currentLevels[currentLevels.length - 1].lastElementChild?.appendChild(newUl);
+                currentLevels.push(newUl);
+            }
+
+            // Remove níveis mais profundos se necessário
+            currentLevels = currentLevels.slice(0, level);
+
+            // Adiciona o item ao nível atual
+            currentLevels[level - 1].appendChild(li);
+        });
+
+        // Insere a lista no widget e exibe
+        tocList.appendChild(tocRoot);
+        tocWidget.style.display = 'block';
     }
+}
+
 
     // ========================================================================
 // FUNCIONALIDADE 5: GALERIA DE FOTOS (LIGHTBOX)
