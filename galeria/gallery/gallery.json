@@ -1,0 +1,131 @@
+{
+  "title": "Fotos",
+  "description": "descrição",
+  "url": "",
+  "headerImage": "../056.jpg",
+  "metadata": {
+    "image": "/gallery/images/social-media-card.jpg"
+  },
+  "sections": [
+    {
+      "images": [
+        {
+          "type": "image",
+          "path": "../056.jpg",
+          "width": 12000,
+          "height": 8016,
+          "thumbnail": {
+            "path": "images/056.avif",
+            "pathRetina": "images/056@2x.avif",
+            "width": 300,
+            "height": 200,
+            "blurHash": "LGHd~+4nt,0L~AIA-pE1EL?crq$|"
+          },
+          "lastMediaTimestamp": "2025-10-15T13:15:24.000Z"
+        },
+        {
+          "type": "image",
+          "path": "../057.jpg",
+          "width": 8212,
+          "height": 12000,
+          "thumbnail": {
+            "path": "images/057.avif",
+            "pathRetina": "images/057@2x.avif",
+            "width": 205,
+            "height": 300,
+            "blurHash": "L4F=B,005Q^+P.Hq~VaL0A9X?H9a"
+          },
+          "lastMediaTimestamp": "2025-10-15T13:15:22.000Z"
+        },
+        {
+          "type": "image",
+          "path": "../058.jpg",
+          "width": 8007,
+          "height": 12000,
+          "thumbnail": {
+            "path": "images/058.avif",
+            "pathRetina": "images/058@2x.avif",
+            "width": 200,
+            "height": 300,
+            "blurHash": "L8FPNq4T02~q024;?^E0pxt9%NM^"
+          },
+          "lastMediaTimestamp": "2025-10-15T13:15:22.000Z"
+        },
+        {
+          "type": "image",
+          "path": "../061.jpg",
+          "width": 12000,
+          "height": 8105,
+          "thumbnail": {
+            "path": "images/061.avif",
+            "pathRetina": "images/061@2x.avif",
+            "width": 300,
+            "height": 203,
+            "blurHash": "LFHCQCxV00M|yZDjn$tRxtx]ofsm"
+          },
+          "lastMediaTimestamp": "2025-10-15T13:15:22.000Z"
+        },
+        {
+          "type": "image",
+          "path": "../062.jpg",
+          "width": 8072,
+          "height": 12000,
+          "thumbnail": {
+            "path": "images/062.avif",
+            "pathRetina": "images/062@2x.avif",
+            "width": 202,
+            "height": 300,
+            "blurHash": "L6HK|Q0L00+c~n%MRkoz7|%1^ku3"
+          },
+          "lastMediaTimestamp": "2025-10-15T13:15:24.000Z"
+        },
+        {
+          "type": "image",
+          "path": "../065.jpg",
+          "width": 12000,
+          "height": 8192,
+          "thumbnail": {
+            "path": "images/065.avif",
+            "pathRetina": "images/065@2x.avif",
+            "width": 300,
+            "height": 205,
+            "blurHash": "L6D+bz-:Y*~p^*snI:%f0}$i-UIo"
+          },
+          "lastMediaTimestamp": "2025-10-15T13:15:22.000Z"
+        },
+        {
+          "type": "image",
+          "path": "../070.jpg",
+          "width": 12000,
+          "height": 8103,
+          "thumbnail": {
+            "path": "images/070.avif",
+            "pathRetina": "images/070@2x.avif",
+            "width": 300,
+            "height": 203,
+            "blurHash": "LOKxPBM|0LIp_NWFx].8-;IV%Lxu"
+          },
+          "lastMediaTimestamp": "2025-10-15T13:15:22.000Z"
+        },
+        {
+          "type": "image",
+          "path": "../071.jpg",
+          "width": 7977,
+          "height": 12000,
+          "thumbnail": {
+            "path": "images/071.avif",
+            "pathRetina": "images/071@2x.avif",
+            "width": 199,
+            "height": 300,
+            "blurHash": "LEG8yM=^0KE3_MENNH%2Mw-poMRi"
+          },
+          "lastMediaTimestamp": "2025-10-15T13:15:26.000Z"
+        }
+      ]
+    }
+  ],
+  "subGalleries": {
+    "title": "Sub Galleries",
+    "galleries": []
+  }
+}
