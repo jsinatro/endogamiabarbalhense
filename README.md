@@ -28,7 +28,7 @@ A obra final visa demonstrar quantitativamente e qualitativamente que a endogami
 ## 📧 Contato, Colaboração e Interesse
 Para consultas acadêmicas, oportunidades de colaboração ou manifestação de interesse na publicação final, utilize os canais abaixo:
 
-* **Autor:** João Sinatro, Genealogista e Historiador.
+* **Autor:** João Sinatro de Sousa
 * **Email Profissional:** joaosinatro@endogamiabarbalhense.com.br
 * **Perfil Acadêmico/Profissional:** https://github.com/jsinatro
 
