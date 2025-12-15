@@ -277,8 +277,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Estilo de cada "caixa" (widget) dentro da sidebar. */
 .widget {
-    border: 1px solid var(--color-border);
+    border: 2px solid var(--color-border);
+    border-style: outset;
     padding: 1.5rem;
+    border-radius: 10px; /* define o arredondamento dos cantos */
 }
 
 /* Título de um widget. */
@@ -333,6 +335,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.75rem;
     border: 1px solid var(--color-border);
     border-radius: 4px;
+    text-align: justify;
 }
 
 .contribution-item:hover {
@@ -417,8 +420,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Estilo principal do post na página do livro (efeito de papel antigo). */
 .page-book .post {
-    background-color: #fdfaf3; /* Cor de pergaminho */
-    border: 1px solid #e9e4d8;
+    background-color: #F5F5F5; /* Fundo bege claro para simular papel antigo */
+    border: 1px solid #e9d8d8; /* Borda clara para simular papel antigo */
     box-shadow: 5px 5px 15px rgba(0,0,0,0.1); /* Sombra que dá profundidade */
     padding: 2.5rem 3rem;
     border-bottom: none; /* Remove a borda padrão que separa posts */
@@ -457,8 +460,9 @@ h1, h2, h3, h4, h5, h6 {
     text-indent: 0;
 }
 
+/*
 /* Efeito de LETRA CAPITULAR (Drop Cap) - COMENTADO/DESATIVADO.
-   Para reativar, remova o '/*' e o '*/' que envolvem esta regra. 
+   Para reativar, remova o e o  que envolvem esta regra. 
 .page-book .post-content p:first-of-type::first-letter {
     font-size: 4.5em;
     font-weight: bold;
@@ -467,8 +471,8 @@ h1, h2, h3, h4, h5, h6 {
     padding-right: 0.15em;
     padding-bottom: 0.05em;
     color: var(--color-accent);
-}
-*/
+}*/
+
 
 /* Link "Continue lendo" na página do livro (estilo clássico). */
 .page-book .read-more {
@@ -484,31 +488,87 @@ h1, h2, h3, h4, h5, h6 {
 /* -------------------------------------------------------------------------- */
 /* [9] WIDGET DE ÍNDICE DA PÁGINA (Table of Contents)                         */
 /* -------------------------------------------------------------------------- */
-/* Estilos para a lista do índice que é gerada por JavaScript na página do livro. */
 
+/* LISTA PRINCIPAL DO ÍNDICE */
 #toc-list ul {
     list-style: none;
     padding-left: 0.5rem;
+    margin: 0;
 }
 
+/* ITENS DA LISTA */
 #toc-list li {
     padding: 0.4rem 0;
 }
 
+/* LINKS DO ÍNDICE */
 #toc-list a {
     color: var(--color-text-muted);
     text-decoration: none;
     font-size: 0.9rem;
-    border-left: 3px solid var(--color-border); /* Linha à esquerda para indicar o item */
+    border-left: 3px solid var(--color-border); /* Linha à esquerda */
     padding-left: 0.75rem;
     display: block;
+    transition: color 0.2s ease, border-color 0.2s ease;
 }
 
+/* HOVER NOS LINKS */
 #toc-list a:hover {
     color: var(--color-accent);
     border-left-color: var(--color-accent);
-    text-decoration: none;
 }
+
+/* -------------------------------------------------------------------------- */
+/* ÍCONES POR NÍVEL DE TÍTULO                                                */
+/* -------------------------------------------------------------------------- */
+
+/* Nível 1 (h1) */
+#toc-list > ul > li > a::before {
+    content: "📘"; /* ícone de livro */
+    margin-right: 0.5rem;
+}
+
+/* Nível 2 (h2) */
+#toc-list ul ul > li > a::before {
+    content: "📗"; /* ícone de capítulo */
+    margin-right: 0.5rem;
+}
+
+/* Nível 3 (h3) */
+#toc-list ul ul ul > li > a::before {
+    content: "📄"; /* ícone de subcapítulo */
+    margin-right: 0.5rem;
+}
+
+/* Nível 4+ (h4, h5, h6) */
+#toc-list ul ul ul ul > li > a::before {
+    content: "🔹"; /* marcador genérico */
+    margin-right: 0.5rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* SUBLISTAS RECOLHÍVEIS                                                     */
+/* -------------------------------------------------------------------------- */
+
+/* Esconde subníveis recolhidos */
+.collapsed {
+    display: none;
+}
+
+/* (Opcional) Para animação suave — requer JS com max-height alternado */
+/*
+.collapsed {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+.expanded {
+    max-height: 1000px;
+    transition: max-height 0.3s ease;
+}
+*/
+
+
 
 /* -------------------------------------------------------------------------- */
 /* [8] RESPONSIVIDADE (MOBILE FIRST)                                          */
@@ -896,3 +956,162 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-text-muted);
     font-style: italic;
 }
+/* =======================================================
+   BOTÃO FLUTUANTE "LER O LIVRO" - ÍCONE PERSONALIZADO
+   ======================================================= */
+
+.float-btn-container.left {
+  position: fixed;
+  bottom: 15px;
+  left: 15px; 
+  z-index: 99999;
+}
+
+/* Botão circular */
+.float-btn {
+  width: 56px;             
+  height: 56px;
+  border-radius: 50%;
+  background-color: transparent; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+
+/* Ícone personalizado */
+.float-btn-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* garante que a imagem preencha o círculo */
+  border-radius: 50%;  /* mantém o formato circular */
+}
+
+/* Tooltip */
+.float-tooltip {
+  position: absolute;
+  left: 70px;                 
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #0c0402;
+  color: #fff;
+  font-size: 14px;
+  font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  padding: 8px 14px;
+  border-radius: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.float-btn:hover .float-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(4px);
+}
+
+/* Hover no botão */
+.float-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Flutuação leve contínua */
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.float-btn {
+  animation: floatUp 5s ease-in-out infinite;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .float-btn-container.left {
+    bottom: 10px;
+    left: 10px;
+  }
+  .float-btn {
+    width: 50px;
+    height: 50px;
+  }
+  .float-btn-icon {
+    padding: 0;
+  }
+  .float-tooltip {
+    font-size: 12px;
+    padding: 6px 10px;
+    left: 60px;
+  }
+}
+/* ...código existente... */
+@media (max-width: 900px) {
+     .main-navigation {
+        display: none;
+        position: absolute;
+        top: 100%; /* Começa logo abaixo do cabeçalho */
+        left: 0;
+        width: 100%;
+        background-color: var(--color-accent);
+        border-top: 1px solid #1e2b38;
+        padding: 1rem 0;
+    }
+
+    /* Quando o menu está ativo (classe adicionada via JS), ele aparece */
+    .main-navigation.menu-open {
+        display: block;
+    }
+    .main-navigation.menu-open {
+        display: block;
+    }
+    .menu-toggle {
+        display: block;
+    }
+}
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: url("../images/bg_site.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    font-family: 'EB Garamond', serif;
+    overflow: hidden;
+}
+
+.hero-banner .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-banner .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.hero-banner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: antiquewhite; /* branco antigo */
+}
+
+.hero-banner p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
