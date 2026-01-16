@@ -4,7 +4,7 @@
 
 ### Você tem uma foto, documento ou história? Sua contribuição é bem-vinda para ajudar a montar esse quebra-cabeça.
 
-https://jsinatro.github.io/endogamiabarbalhense/
+# https://jsinatro.github.io/endogamiabarbalhense/
 
-# Just a sketch for a future genealogy book
+## Just a sketch for a future genealogy book
 ## we are cousins
