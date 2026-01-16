@@ -6,5 +6,5 @@
 
 # https://jsinatro.github.io/endogamiabarbalhense/
 
-## Just a sketch for a future genealogy book.
-## we are cousins.
+## Just a sketch for a future genealogy book
+## we are cousins
