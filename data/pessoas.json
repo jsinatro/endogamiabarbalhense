@@ -1,0 +1,33 @@
+[
+  {
+    "id": "EXEMPLO-1",
+    "nome": "EXEMPLO – Maria de Tal",
+    "apelidos": [
+      "EXEMPLO – Mariinha"
+    ],
+    "nascimento": "1900-01-01",
+    "obito": "1970-05-20",
+    "local": "EXEMPLO – Barbalha, CE",
+    "vivo": false,
+    "notas": "EXEMPLO FICTÍCIO: este registro é apenas demonstrativo e deve ser substituído por dados reais verificados.",
+    "referencia_url": "/livro/cap-01.html",
+    "links": {
+      "familysearch": "https://www.familysearch.org/",
+      "github": "https://github.com/jsinatro/endogamiabarbalhense"
+    }
+  },
+  {
+    "id": "EXEMPLO-2",
+    "nome": "EXEMPLO – João de Tal",
+    "apelidos": [
+      "EXEMPLO – Joca"
+    ],
+    "nascimento": "1910-09-15",
+    "local": "EXEMPLO – Crato, CE",
+    "vivo": false,
+    "notas": "EXEMPLO FICTÍCIO: este registro é apenas demonstrativo e deve ser substituído por dados reais verificados.",
+    "links": {
+      "familysearch": "https://www.familysearch.org/"
+    }
+  }
+]
