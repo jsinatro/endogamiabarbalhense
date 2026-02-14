@@ -136,18 +136,56 @@ const contentArea = document.getElementById('main-content'); // Área principal 
 // Verifica se todos os elementos existem
 if (tocWidget && tocList && contentArea) {
     // Seleciona todos os títulos h1 a h6 dentro do conteúdo principal
-    const headings = contentArea.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    const headings = Array.from(contentArea.querySelectorAll('h1, h2, h3, h4, h5, h6'))
+        .filter((heading) => !heading.closest('footer'));
+
+    function slugifyHeadingText(text) {
+        return (text || '')
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/[^a-z0-9-]/g, '')
+            .replace(/-+/g, '-')
+            .replace(/^-+|-+$/g, '');
+    }
+
+    function generateUniqueHeadingId(heading, usedIds) {
+        const existingId = (heading.id || '').trim();
+        if (existingId) {
+            usedIds.add(existingId);
+            return existingId;
+        }
+
+        const baseSlug = slugifyHeadingText(heading.textContent) || 'secao';
+        let uniqueId = baseSlug;
+        let suffix = 2;
+
+        while (usedIds.has(uniqueId) || document.getElementById(uniqueId)) {
+            uniqueId = `${baseSlug}-${suffix}`;
+            suffix += 1;
+        }
+
+        heading.id = uniqueId;
+        usedIds.add(uniqueId);
+
+        return uniqueId;
+    }
 
     // Se houver títulos, começa a construir o índice
     if (headings.length > 0) {
         const tocRoot = document.createElement('ul'); // Raiz da lista
         let currentLevels = [tocRoot]; // Pilha para controlar os níveis de profundidade
+        const usedIds = new Set(
+            Array.from(document.querySelectorAll('[id]'))
+                .map((element) => (element.id || '').trim())
+                .filter(Boolean)
+        );
 
         // Itera sobre cada título encontrado
-        headings.forEach((heading, index) => {
+        headings.forEach((heading) => {
             const level = parseInt(heading.tagName.substring(1)); // Extrai o nível (1 a 6)
-            const anchorId = `toc-heading-${index}`;              // ID único para âncora
-            heading.id = anchorId;                                // Define o ID no título original
+            const anchorId = generateUniqueHeadingId(heading, usedIds); // Reaproveita ou gera ID estável
 
             // Cria o item da lista e o link
             const li = document.createElement('li');
