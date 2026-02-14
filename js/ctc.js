@@ -2,7 +2,7 @@
 (function(){
   // CONFIGURAÇÃO: altere aqui
   var NUMBER = "5511996495465"; // <-- SEU NÚMERO (ex: 5511996495465)
-  var PREFILLED = "Olá! Vi seu site e gostaria de conversar."; // mensagem pré-preenchida (pode ficar vazia "")
+  var PREFILLED = "Olá Sinatro! Vim pelo site Endogamia Barbalhense."; // mensagem pré-preenchida padrão
   var TARGET_BLANK = true; // abre em nova aba (true) ou na mesma (false)
 
   function onClickHook(obj){
@@ -35,10 +35,7 @@
   var cta = document.getElementById('ht-ctc-cta');
 
   function openWhatsApp() {
-    var text = PREFILLED || "";
-    var encoded = encodeURIComponent(text);
-    var url = "https://api.whatsapp.com/send?phone=" + encodeURIComponent(NUMBER);
-    if (encoded) url += "&text=" + encoded;
+    var url = "https://wa.me/5511996495465?text=Ol%C3%A1%20Sinatro!%20Vim%20pelo%20site%20Endogamia%20Barbalhense.";
     onClickHook({number: NUMBER, text: PREFILLED, url: url});
     if (TARGET_BLANK) {
       window.open(url, "_blank", "noopener,noreferrer");
