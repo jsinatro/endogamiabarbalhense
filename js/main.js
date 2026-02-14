@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             clearHighlights(document);
 
-            const query = searchInput.value.trim();
+            const query = (searchInput ? searchInput.value : "").trim();
             if (query.length === 0 || !mainContent) {
                 return;
             }
@@ -236,6 +236,7 @@ function setupGallery() {
     const captionText = document.getElementById("caption");
     const galleryItems = document.querySelectorAll(".gallery-item img");
     const closeButton = document.querySelector(".close-button");
+    if (!modalImg || !captionText || !closeButton) return;
 
     // Para cada miniatura, adiciona um evento de clique
     galleryItems.forEach(item => {
@@ -279,8 +280,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menu-toggle');
     const mainMenu = document.getElementById('main-menu');
 
-    menuToggle.addEventListener('click', function() {
-        mainMenu.classList.toggle('menu-open');
-    });
+    if (menuToggle && mainMenu) {
+        menuToggle.addEventListener('click', function() {
+            mainMenu.classList.toggle('menu-open');
+        });
+    }
 });
 // ...código existente...

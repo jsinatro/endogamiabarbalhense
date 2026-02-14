@@ -1,5 +1,5 @@
 (function () {
-  const DATA_URL = '/data/pessoas.json';
+  const DATA_URL = '../data/pessoas.json';
   const SEARCH_DEBOUNCE_MS = 200;
 
   const state = {
