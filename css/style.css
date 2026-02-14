@@ -71,6 +71,13 @@ a:hover {
     text-decoration: underline; /* Adiciona sublinhado no hover */
 }
 
+.search-highlight {
+    background: #ffeb3b;
+    padding: 0 2px;
+    border-radius: 3px;
+}
+
+
 /* Estilo padrão para todos os títulos. */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
