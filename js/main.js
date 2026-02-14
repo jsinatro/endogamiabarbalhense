@@ -27,36 +27,101 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchForm = document.getElementById('content-search-form');
     if (searchForm) {
         const searchInput = document.getElementById('content-search-input');
-        const mainContent = document.getElementById('main-content');
-        let originalContent = mainContent.innerHTML; // Salva o conteúdo original
+        const mainContent = document.querySelector('main') || document.getElementById('main-content');
 
-        function removeHighlights() {
-            mainContent.innerHTML = originalContent; // Restaura o conteúdo original
+        function clearHighlights(root) {
+            const highlightSpans = root.querySelectorAll('span.search-highlight');
+            highlightSpans.forEach((span) => {
+                const parent = span.parentNode;
+                if (!parent) return;
+
+                parent.replaceChild(document.createTextNode(span.textContent || ''), span);
+                parent.normalize();
+            });
+        }
+
+        function highlightTerm(root, term) {
+            if (!root || !term) return 0;
+
+            const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(escapedTerm, 'gi');
+            const forbiddenTags = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'INPUT', 'TEXTAREA']);
+            const walker = document.createTreeWalker(
+                root,
+                NodeFilter.SHOW_TEXT,
+                {
+                    acceptNode(node) {
+                        const parentElement = node.parentElement;
+                        if (!parentElement) return NodeFilter.FILTER_REJECT;
+                        if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+                        if (forbiddenTags.has(parentElement.tagName)) return NodeFilter.FILTER_REJECT;
+                        if (parentElement.closest('script, style, noscript, input, textarea, .search-highlight')) {
+                            return NodeFilter.FILTER_REJECT;
+                        }
+                        return NodeFilter.FILTER_ACCEPT;
+                    }
+                }
+            );
+
+            const textNodes = [];
+            while (walker.nextNode()) {
+                textNodes.push(walker.currentNode);
+            }
+
+            let totalMatches = 0;
+            textNodes.forEach((textNode) => {
+                const text = textNode.nodeValue;
+                if (!text) return;
+
+                regex.lastIndex = 0;
+                let match;
+                let lastIndex = 0;
+                const fragment = document.createDocumentFragment();
+
+                while ((match = regex.exec(text)) !== null) {
+                    totalMatches += 1;
+
+                    if (match.index > lastIndex) {
+                        fragment.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+                    }
+
+                    const span = document.createElement('span');
+                    span.className = 'search-highlight';
+                    span.textContent = match[0];
+                    fragment.appendChild(span);
+
+                    lastIndex = match.index + match[0].length;
+                }
+
+                if (lastIndex > 0) {
+                    if (lastIndex < text.length) {
+                        fragment.appendChild(document.createTextNode(text.slice(lastIndex)));
+                    }
+                    textNode.parentNode.replaceChild(fragment, textNode);
+                }
+            });
+
+            return totalMatches;
         }
 
         searchForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            removeHighlights(); // Limpa a busca anterior
+            clearHighlights(document);
 
-            const query = searchInput.value.trim().toLowerCase();
-            if (query.length === 0) {
+            const query = searchInput.value.trim();
+            if (query.length === 0 || !mainContent) {
                 return;
             }
 
-            const regex = new RegExp(`(${query})`, 'gi');
-            
-            if (originalContent.toLowerCase().includes(query)) {
-                const newContent = originalContent.replace(regex, '<span class="search-highlight">$1</span>');
-                mainContent.innerHTML = newContent;
+            const matches = highlightTerm(mainContent, query);
+            const firstHighlight = mainContent.querySelector('.search-highlight');
+
+            if (matches > 0 && firstHighlight) {
+                firstHighlight.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } else {
                 alert('Termo não encontrado na página.');
             }
         });
-        
-        // Adiciona um estilo para o highlight dinamicamente
-        const style = document.createElement('style');
-        style.innerHTML = `.search-highlight { background-color: var(--color-accent); color: #fff; font-weight: bold; }`;
-        document.head.appendChild(style);
     }
     
 // ========================================================================
