@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Índice de pessoas citadas no projeto Endogamia Barbalhense.">
+    <title>Índice de Pessoas - Endogamia Barbalhense</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/ctc.css">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+</head>
+<body class="page-book">
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="site-branding">
+                    <h1 class="site-title"><a href="../index.html">Endogamia Barbalhense</a></h1>
+                </div>
+                <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <nav class="main-navigation" id="main-menu">
+                    <ul>
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="index.html">livro</a></li>
+                        <li><a href="/livro/indice-pessoas.html">Índice</a></li>
+                        <li><a href="../galeria.html">Galeria</a></li>
+                        <li><a href="../arvore.html">Árvore</a></li>
+                        <li><a href="/metodologia.html">Metodologia e Fontes</a></li>
+                        <li><a href="https://endogamiabarbalhense.com.br/blog/">Blog</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content-area container">
+        <div class="page-with-sidebar">
+            <main id="main-content">
+                <article class="post">
+                    <div class="post-content">
+                        <h2>Índice de Pessoas</h2>
+                        <div class="indice-controls">
+                            <label for="indice-search" class="indice-label">Busca</label>
+                            <input id="indice-search" class="indice-search" type="search" placeholder="Buscar por nome, sobrenome, ID…" autocomplete="off">
+
+                            <label class="indice-checkbox">
+                                <input id="apenas-falecidos" type="checkbox">
+                                Mostrar apenas falecidos
+                            </label>
+                        </div>
+
+                        <p id="indice-status" class="indice-status" aria-live="polite"></p>
+                        <p id="total-resultados" class="post-meta">0 resultados</p>
+                        <div id="lista-resultados"></div>
+
+                        <p class="post-meta">Este índice é alimentado pelo arquivo <code>/data/pessoas.json</code>.</p>
+                    </div>
+                </article>
+            </main>
+
+            <aside class="sidebar">
+                <div class="widget">
+                    <h3 class="widget-title">Atualização contínua</h3>
+                    <p>O índice de pessoas está em construção contínua. Os registros serão ampliados gradualmente com dados conferidos em fontes históricas e familiares.</p>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer class="site-footer" id="contato">
+        <div class="container">
+            <div class="footer-widgets">
+                <div class="footer-widget">
+                    <h3 class="widget-title">Entre em Contato</h3>
+                    <div class="contact-links">
+                        <a class="contact-link" href="mailto:sinatro@msn.com?subject=Endogamia%20Barbalhense&body=Olá%20Sinatro!%20Vim%20pelo%20site.">
+                            <i class="fas fa-envelope"></i> E-mail
+                        </a>
+                        <a class="contact-link" href="https://wa.me/5511996495465?text=Olá%20Sinatro!%20Vim%20pelo%20Endogamia%20Barbalhense." target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a class="contact-link" href="https://github.com/jsinatro" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a class="contact-link" href="https://www.instagram.com/Sinatro/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a class="contact-link" href="https://www.facebook.com/Sinatro/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2026 Endogamia Barbalhense. Todos os direitos reservados. Desenvolvido por
+                    <a href="https://jsinatro.github.io/sinatro/" target="_blank" rel="noopener noreferrer">
+                        João Sinatro <i class="fab fa-github"></i>
+                    </a>.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/ctc.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/indice-pessoas.js" defer></script>
+</body>
+</html>
