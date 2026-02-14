@@ -389,6 +389,28 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 4px;
 }
 
+
+
+/* Links diretos de contato no rodapé. */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contact-link {
+    text-decoration: none;
+    display: inline-flex;
+    gap: 0.6rem;
+    align-items: center;
+    color: var(--color-text-muted);
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+    color: var(--color-accent);
+}
+
 /* Ícones das redes sociais. */
 .social-icons {
     display: flex;
