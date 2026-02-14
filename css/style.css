@@ -77,6 +77,99 @@ a:hover {
     border-radius: 3px;
 }
 
+/* -------------------------------------------------------------------------- */
+/* [FONTE] Componente reutilizável para citações de fontes                    */
+/* Como usar (recolhível):
+<details class="fonte">
+  <summary class="fonte__titulo">Fonte</summary>
+  <div class="fonte__conteudo">
+    <ul class="fonte__lista">
+      <li class="fonte__item">Referência textual já presente no conteúdo.</li>
+    </ul>
+  </div>
+</details>
+
+Como usar (simples, sem details):
+<div class="fonte" role="note" aria-label="Fonte">
+  <p class="fonte__titulo">Fonte</p>
+  <ul class="fonte__lista">
+    <li class="fonte__item">Referência textual já presente no conteúdo.</li>
+  </ul>
+</div>
+*/
+.fonte {
+    margin: 1rem 0 1.5rem;
+    border: 1px solid var(--color-border);
+    border-left: 3px solid color-mix(in srgb, var(--color-text-muted) 45%, white);
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--color-surface) 75%, white);
+}
+
+.fonte__titulo {
+    list-style: none;
+    margin: 0;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+details.fonte .fonte__titulo {
+    cursor: pointer;
+}
+
+details.fonte .fonte__titulo::-webkit-details-marker {
+    display: none;
+}
+
+details.fonte .fonte__titulo::before {
+    content: '▸';
+    display: inline-block;
+    margin-right: 0.45rem;
+    color: var(--color-text-muted);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+}
+
+details.fonte[open] .fonte__titulo::before {
+    transform: rotate(90deg);
+}
+
+.fonte__conteudo {
+    padding: 0 0.9rem 0.9rem;
+}
+
+.fonte__lista {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.fonte__item {
+    margin-top: 0.2rem;
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+.fonte__link {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    word-break: break-word;
+}
+
+@media (max-width: 768px) {
+    .fonte {
+        margin: 0.9rem 0 1.2rem;
+    }
+
+    .fonte__titulo,
+    .fonte__conteudo {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+}
+
 
 /* Estilo padrão para todos os títulos. */
 h1, h2, h3, h4, h5, h6 {
@@ -1143,4 +1236,3 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 800px;
     margin: 0 auto;
 }
-
